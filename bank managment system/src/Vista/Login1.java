@@ -10,9 +10,7 @@ package Vista;
  */
 public class Login1 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
+    Registrar1 r1 = new Registrar1(); //inicializa r1 para usar más tarde
     public Login1() {
         initComponents();
     }
@@ -215,7 +213,9 @@ public class Login1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        r1.setL1(this);
+        r1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
