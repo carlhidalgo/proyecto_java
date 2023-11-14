@@ -11,6 +11,7 @@ package Vista;
 public class Login1 extends javax.swing.JFrame {
 
     Registrar1 r1 = new Registrar1(); //inicializa r1 para usar más tarde
+    Inicio i1 = new Inicio(); //inicializa i1 para usar más tarde
     public Login1() {
         initComponents();
     }
@@ -202,7 +203,9 @@ public class Login1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        i1.setL1(this);
+        i1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -11,7 +11,11 @@ package Vista;
 public class Inicio extends javax.swing.JFrame {
    
     private Login1 l1; //variable login para ocultar o mostrar la ventana
-    Registrar2 v2 = new Registrar2(); //inicializa registro 2 para usar más tarde
+    
+    Cambiar c1 = new Cambiar(); //inicializa cambiar para usar más tarde
+    Despositar d1 = new Despositar(); //inicializa depositar para usar más tarde
+    Retiro1 r1 = new Retiro1(); //inicializa retiro 1 para usar más tarde
+    Retiro2 r2 = new Retiro2(); //inicializa retiro 2 para usar más tarde
     public Inicio() {
         
         initComponents();
@@ -24,9 +28,8 @@ public class Inicio extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     public void setL1(Login1 l1){ //set para obtener la variable
-        this.l1=l1;
+    this.l1=l1;
     }
- 
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -157,11 +160,15 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      r2.setI1(this);
+        r2.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        c1.setI1(this);
+        c1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -169,7 +176,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        r1.setI1(this);
+        r1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -181,7 +190,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        d1.setI1(this);
+        d1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
