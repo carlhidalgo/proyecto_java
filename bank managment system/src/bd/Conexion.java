@@ -7,13 +7,16 @@ package bd;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
-//import java.sql.SQLException;
+import java.sql.SQLException;
 import java.util.Properties;
 /**
  *
  * @author carlos
  */
 public class Conexion {
+
+    public Conexion() {
+    }
     
     // DE ACA COMIENZA LA CONEXION A ORACLE
     private static final String WALLET_PATH = "C:/Users/Felipe/Documents/Wallet_proyect";

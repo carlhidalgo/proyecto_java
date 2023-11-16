@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import java.util.Date;
+
 /**
  *
  * @author gauge
@@ -363,6 +365,49 @@ public class Registrar1 extends javax.swing.JFrame {
             }
         });
     }
+    // Método para obtener el nombre completo
+    public String getNombreCompleto() {
+        return jTextField1.getText();
+    }
+
+    // Método para obtener el RUN
+    public String getRUN() {
+        return jTextField2.getText();
+    }
+
+    // Método para obtener el género
+    public String getGenero() {
+        if (jRadioButton1.isSelected()) {
+            return "Masculino";
+        } else if (jRadioButton2.isSelected()) {
+            return "Femenino";
+        } else if (jRadioButton3.isSelected()) {
+            return "No binario";
+        } else {
+            return "";
+        }
+    }
+
+    // Método para obtener la fecha de nacimiento
+    public Date getFechaNacimiento() {
+        return jDateChooser1.getDate();
+    }
+
+    // Método para obtener el estado civil
+    public String getEstadoCivil() {
+        return jComboBox1.getSelectedItem().toString();
+    }
+
+    // Método para obtener el correo electrónico
+    public String getEmail() {
+        return jTextField6.getText();
+    }
+
+    // Método para obtener el teléfono
+    public String getTelefono() {
+        return jTextField7.getText();
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botonatras1;
