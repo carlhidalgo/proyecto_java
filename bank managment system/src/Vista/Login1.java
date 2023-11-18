@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import Controlador.LoginCON;
+import model.Cuenta;
+
 
 /**
  *
@@ -15,6 +18,7 @@ public class Login1 extends javax.swing.JFrame {
     public Login1() {
         initComponents();
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,8 +31,8 @@ public class Login1 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tarjeta = new javax.swing.JTextField();
+        pin = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -45,11 +49,11 @@ public class Login1 extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("jTextField1");
+        tarjeta.setBackground(new java.awt.Color(255, 255, 255));
+        tarjeta.setText("jTextField1");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("jTextField2");
+        pin.setBackground(new java.awt.Color(255, 255, 255));
+        pin.setText("jTextField2");
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -101,7 +105,6 @@ public class Login1 extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("N° Tarjeta:");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\gauge\\Documents\\NetBeansProjects\\proyecto_java\\bank managment system\\recursos\\logo.jpg")); // NOI18N
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -129,11 +132,11 @@ public class Login1 extends javax.swing.JFrame {
                                         .addGap(134, 134, 134)
                                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(67, 67, 67))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tarjeta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(63, 63, 63)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(pin, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(51, 51, 51))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(177, 177, 177)
@@ -149,11 +152,11 @@ public class Login1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(58, 58, 58)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(73, 73, 73)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -253,7 +256,29 @@ public class Login1 extends javax.swing.JFrame {
             }
         });
     }
+     LoginCON loginController = new LoginCON(this);
+    boolean exito;
+    
+    public void procesarLogin(String pin, String numeroTarjeta) {
+    // Aquí puedes llamar a métodos del controlador para manejar el inicio de sesión
+    Cuenta cuenta = new Cuenta();
 
+    
+   
+
+   
+    // No necesitas manejar el caso de error aquí, ya que ya se maneja en verificarCredenciales.
+}
+    public String getNiumeroTarjeta() {
+        return tarjeta.getText();
+    }
+
+    // Método para obtener el RUN
+    public String getPin() {
+        return pin.getText();
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -265,7 +290,7 @@ public class Login1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField pin;
+    private javax.swing.JTextField tarjeta;
     // End of variables declaration//GEN-END:variables
 }

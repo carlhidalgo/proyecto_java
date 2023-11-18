@@ -15,4 +15,6 @@ public class NivelEducacionCON {
           // Métodos para acceder a la tabla Movimiento en la base de datos  
 
     
+    
+    
 }

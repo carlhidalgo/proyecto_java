@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import model.Ciudad;
+import model.NivelEducacion;
+import model.Ocupacion;
+
 
 /**
  *
@@ -37,16 +41,16 @@ public class Registrar2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        direccion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        finalizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        ciudad = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
@@ -70,10 +74,10 @@ public class Registrar2 extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Formulario de aplicación");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        direccion.setBackground(new java.awt.Color(255, 255, 255));
+        direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                direccionActionPerformed(evt);
             }
         });
 
@@ -92,13 +96,13 @@ public class Registrar2 extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("FINALIZAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        finalizar.setBackground(new java.awt.Color(0, 0, 0));
+        finalizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        finalizar.setForeground(new java.awt.Color(255, 255, 255));
+        finalizar.setText("FINALIZAR");
+        finalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                finalizarActionPerformed(evt);
             }
         });
 
@@ -119,20 +123,25 @@ public class Registrar2 extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Básica", "Media", "Técnico", "Técnico Superior", "Universitaria incompleta", "Universitaria completa" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Direccion:");
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setEditable(true);
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quilpue", "Quillota", "San Felipe", "San Antonio", "Villa Alemana ", "Valparaiso", "Viña del Mar" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        ciudad.setBackground(new java.awt.Color(255, 255, 255));
+        ciudad.setEditable(true);
+        ciudad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ciudad.setForeground(new java.awt.Color(0, 0, 0));
+        ciudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quilpue", "Quillota", "San Felipe", "San Antonio", "Villa Alemana ", "Valparaiso", "Viña del Mar" }));
+        ciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                ciudadActionPerformed(evt);
             }
         });
 
@@ -219,8 +228,8 @@ public class Registrar2 extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(92, 92, 92)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ciudad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(direccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(92, 92, 92)
@@ -241,7 +250,7 @@ public class Registrar2 extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(181, 181, 181)
@@ -269,12 +278,12 @@ public class Registrar2 extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -298,7 +307,7 @@ public class Registrar2 extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -316,22 +325,43 @@ public class Registrar2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_direccionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         v1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    String direccion = getDireccion();
+    String ciudad = getCiudad();
+    String nivelEducacional = getNivelEducacional();
+    String ocupacion = getOcupacion();
+    String sueldo = getSueldo();
+    String tipoCuenta = getTipoCuenta();
+    if (jRadioButton10.isSelected()) {
+        tipoCuenta = "Vista";
+    } else if (jRadioButton11.isSelected()) {
+        tipoCuenta = "Corriente";
+    } else if (jRadioButton12.isSelected()) {
+        tipoCuenta = "Ahorro";
+    }
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    // Verificar si se ha marcado la declaración
+    boolean declaracionCorrecta = jCheckBox1.isSelected();
+
+    // Realizar las acciones necesarias con los datos (por ejemplo, guardar en la base de datos)
+    // Aquí puedes llamar a tu método de guardar en la base de datos
+    
+    }//GEN-LAST:event_finalizarActionPerformed
+
+    private void ciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudadActionPerformed
+    
+    }//GEN-LAST:event_ciudadActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
@@ -345,6 +375,45 @@ public class Registrar2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton11ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+ // Método para obtener la dirección desde el campo de texto
+    public String getDireccion() {
+        return direccion.getText();
+    }
+
+    // Método para obtener la ciudad desde el ComboBox
+    public String getCiudad() {
+        return ciudad.getSelectedItem().toString();
+    }
+
+    // Método para obtener el nivel educacional desde el ComboBox
+    public String getNivelEducacional() {
+        return jComboBox1.getSelectedItem().toString();
+    }
+
+    // Método para obtener la ocupación desde el ComboBox
+    public String getOcupacion() {
+        return jComboBox3.getSelectedItem().toString();
+    }
+
+    // Método para obtener el sueldo desde el campo de texto
+    public String getSueldo() {
+        return jTextField6.getText();
+    }
+    // Método para obtener el tipo cuenta
+    public String getTipoCuenta() {
+        if (jRadioButton10.isSelected()) {
+            return "Vista";
+        } else if (jRadioButton11.isSelected()) {
+            return "Corriente";
+        } else if (jRadioButton12.isSelected()) {
+            return "Ahorro";
+        } else {
+            return "";  
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -381,11 +450,12 @@ public class Registrar2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ciudad;
+    private javax.swing.JTextField direccion;
+    private javax.swing.JButton finalizar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -396,23 +466,14 @@ public class Registrar2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
+
+    private String getNombredireccion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

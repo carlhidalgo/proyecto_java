@@ -42,5 +42,9 @@ public class Ocupacion {
     public String toString() {
         return "Ocupacion{" + "idOcupacion=" + idOcupacion + ", nombre=" + nombre + '}';
     }
+
+    public void setOcupacion(Ocupacion ocupacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
