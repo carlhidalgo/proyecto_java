@@ -6,11 +6,10 @@ package Controlador;
 
 import bd.Conexion;
 import model.Cliente;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.Date;
 
+import javax.swing.JOptionPane;
+
+import java.sql.SQLException;
 /**
  *
  * @author carlos
@@ -19,45 +18,27 @@ import java.util.Date;
 
 
 public class ClienteCON {
+   
+    Conexion cnx = new Conexion();
     
-    // Métodos para acceder a la tabla Cliente en la base de datos
-    public boolean agregar(Cliente cliente) throws Exception {
-    Date date;
-
-    try {
-        Conexion con = new Conexion();
-        Connection cnx = con.obtenerConexionOracle();
-
-        date = Cliente.getFechaNacimiento();
-
-        // Verificar si el RUN y el número de tarjeta ya existen en la base de datos
-        if (verificarExistenciaCliente(cnx, cliente.getRun(), cliente.getNumeroTarjeta())) {
-            System.out.println("Ya existe un cliente con este RUN y número de tarjeta.");
-            return false; // Indicar que no se puede agregar el cliente
+    public void formCliente(String run, String name, char dv_run, String genero, String direccion, String email,
+            String eCivil, String fNacimiento, int sueldo, String ciudad) throws SQLException {
+        if (name.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo nombre es obligatorio.");
+        } else {
+            String query = "insert into cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values ('"
+                    + run + "', '" + name + "', '" + dv_run + "', '" + genero + "', '" + direccion + "', '" + email + "', '" + eCivil
+                    + "', '" + fNacimiento + "', " + sueldo + ");";
+            cnx.Conn(query);
+            System.out.println(query);
+            String query2 = "update cliente SET c_id_ciudad = (SELECT id_ciudad FROM ciudad where nombre_ciudad = '" + ciudad + "') WHERE run_cliente = '" + run + "';";
+            cnx.Conn(query2);
         }
-
-        // Si no existe, proceder con la inserción
-        String query = "insert into cliente(nombre, run, numero_tarjeta, genero, direccion, email, estado_civil, fecha_nacimiento, ciudad, sueldo) values(?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement stmt = cnx.prepareStatement(query);
-        stmt.setString(1, cliente.getNombre());
-        stmt.setString(2, cliente.getRun());
-        stmt.setString(3, cliente.getNumeroTarjeta());
-        stmt.setString(4, cliente.getGenero());
-        stmt.setString(5, cliente.getDireccion());
-        stmt.setString(6, cliente.getEmail());
-        stmt.setString(7, cliente.getEstadoCivil());
-        stmt.setDate(8, new java.sql.Date(date.getTime()));
-        stmt.setString(9, cliente.getCiudad());
-        stmt.setInt(10, cliente.getSueldo());
-
-        stmt.executeUpdate();
-        stmt.close();
-        cnx.close();
-        return true; // Indicar que el cliente se ha agregado correctamente
-
-    } catch (SQLException e) {
-        System.out.println("Error SQL al agregar cliente " + e.getMessage());
-        return false;
     }
+
+    
 }
-}
+
+
+
+

@@ -6,74 +6,88 @@ package Controlador;
 
 import model.Cuenta;
 import bd.Conexion;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import model.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author carlos
  */
 public class CuentaCON {
     
-// Métodos para acceder a la tabla Movimiento en la base de datos
-     // Método para verificar la existencia de un cliente en la base de datos
-    private boolean verificarExistenciaCliente(Connection cnx, String run, String numeroTarjeta) throws SQLException {
-        String query = "SELECT COUNT(*) AS count FROM cliente WHERE run = ? AND numero_tarjeta = ?";
-        try (PreparedStatement stmt = cnx.prepareStatement(query)) {
-            stmt.setString(1, run);
-            stmt.setString(2, numeroTarjeta);
+    Conexion cnx = new Conexion();
+    
+public void formCuenta(String tipoCuenta, String nivelEducacional, String ocupacion, String run,
+            String numeroTarjeta, String numeroPin, boolean cuenta_ext,
+            String cvv, String servicios) throws SQLException {
 
-            ResultSet rs = stmt.executeQuery();
-            rs.next();
-            int count = rs.getInt("count");
+        String query = "update cliente SET c_id_nEducacional = (SELECT id_nEducacional FROM nivel_educacional where nombre_educacion = '" + nivelEducacional + "') WHERE run_cliente = '" + run + "';";
+        String query2 = "update cliente SET c_id_ocupacion = (SELECT id_ocupacion FROM ocupacion where nombre_ocupacion = '" + ocupacion + "') WHERE run_cliente = '" + run + "';";
+        String query3 = "update cliente SET cuenta_ext = " + cuenta_ext + " WHERE run_cliente = '" + run + "';";
+        System.out.println(query);
+        String query4 = "insert into cuenta values ('" + numeroTarjeta + "', '" + tipoCuenta + "', '"
+                + numeroPin + "', " + 0 + ", '" + cvv + "', '" + servicios + "', true, '" + run + "');";
+        cnx.Conn(query);
+        cnx.Conn(query2);
+        cnx.Conn(query3);
+        cnx.Conn(query4);
 
-            return count > 0;
+    }
+
+public void block(String nro_tarjeta, String cvv) throws SQLException {
+        String getState = "SELECT estado from cuenta where nro_tarjeta = '" + nro_tarjeta + "';";
+        ResultSet rs = cnx.Conn2(getState);
+        if (rs.next()) { // BLOQUEAR
+            String state = rs.getString("estado");
+            if (state.equals("1")) {
+                String query = "UPDATE cuenta SET estado = false where nro_tarjeta = '" + nro_tarjeta + "';";
+                String cvvTest = "SELECT cvv FROM cuenta where nro_tarjeta = '" + nro_tarjeta + "';";
+                ResultSet rs1 = cnx.Conn2(cvvTest);
+                if (rs1.next()) {
+                    String cvvString = rs1.getString("cvv");
+                    if (cvvString.equals(cvv)) {
+                        cnx.Conn(query);
+                        JOptionPane.showMessageDialog(null, "Cuenta bloqueada exitosamente !");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "CVV ingresado no aparece. Revise la parte posterior de su tarjeta.");
+                    }
+                }
+            } else { // DESBLOQUEAR
+                String query = "UPDATE cuenta SET estado = true where nro_tarjeta = '" + nro_tarjeta + "';";
+                String cvvTest = "SELECT cvv FROM cuenta where nro_tarjeta = '" + nro_tarjeta + "';";
+                ResultSet rs1 = cnx.Conn2(cvvTest);
+                if (rs1.next()) {
+                    String cvvString = rs1.getString("cvv");
+                    if (cvvString.equals(cvv)) {
+                        cnx.Conn(query);
+                        JOptionPane.showMessageDialog(null, "Cuenta desbloqueada exitosamente !");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "CVV ingresado no aparece. Revise la parte posterior de su tarjeta.");
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Número de tarjeta no registrado.");
         }
     }
 
- public boolean agregar(Cliente cliente) throws Exception {
-    Date date;
-
-    try {
-        Conexion con = new Conexion();
-        Connection cnx = con.obtenerConexionOracle();
-
-        date = Cliente.getFechaNacimiento();
-
-        // Verificar si el RUN y el número de tarjeta ya existen en la base de datos
-        if (verificarExistenciaCliente(cnx, cliente.getRun(), cliente.getNumeroTarjeta())) {
-            System.out.println("Ya existe un cliente con este RUN y número de tarjeta.");
-            return false; // Indicar que no se puede agregar el cliente
+ public void pinChange(String nro_tarjeta, String pinNumber, String pinNuevo) throws SQLException {
+        String queryTest = "SELECT pin from cuenta where nro_tarjeta = '" + nro_tarjeta + "';";
+        ResultSet rs = cnx.Conn2(queryTest);
+        if (rs.next()) {
+            String pinnywi = rs.getString("pin");
+            if (!pinnywi.equals(pinNumber)) {
+                JOptionPane.showMessageDialog(null, "PIN actual no coincide con el PIN registrado.");
+            } else {
+                String query = "update cuenta SET pin = '" + pinNuevo + "' where nro_tarjeta = '" + nro_tarjeta + "';";
+                cnx.Conn(query);
+                JOptionPane.showMessageDialog(null, "PIN cambiado exitosamente !!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Número de tarjeta no registrado.");
         }
-
-        // Si no existe, proceder con la inserción
-        String query = "insert into cliente(nombre, run, numero_tarjeta, genero, direccion, email, estado_civil, fecha_nacimiento, ciudad, sueldo) values(?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement stmt = cnx.prepareStatement(query);
-        stmt.setString(1, cliente.getNombre());
-        stmt.setString(2, cliente.getRun());
-        stmt.setString(3, cliente.getNumeroTarjeta());
-        stmt.setString(4, cliente.getGenero());
-        stmt.setString(5, cliente.getDireccion());
-        stmt.setString(6, cliente.getEmail());
-        stmt.setString(7, cliente.getEstadoCivil());
-        stmt.setDate(8, new java.sql.Date(date.getTime()));
-        stmt.setString(9, cliente.getCiudad());
-        stmt.setInt(10, cliente.getSueldo());
-
-        stmt.executeUpdate();
-        stmt.close();
-        cnx.close();
-        return true; // Indicar que el cliente se ha agregado correctamente
-
-    } catch (SQLException e) {
-        System.out.println("Error SQL al agregar cliente " + e.getMessage());
-        return false;
     }
-}
-
 
 
 }

@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-import java.util.Date;
 
 /**
  *
@@ -12,129 +7,166 @@ import java.util.Date;
  */
 public class Cliente {
 
-   
-        
-    
-    private String idCliente;
-    private String rutCliente;
-    private String dvrutCliente;
-    private String nombreCliente;
-    private String generoCliente;
-    private String direccionCliente;
-    private String emailCliente;
-    private String ecivilCliente;
-    private Integer sueldoCliente;
-    private Date fechaNcacimiento;
-    // Otros atributos...
-
-    // Constructor, getters y setters
+ private String run,nombre,genero,direccion,email,eCivil,fNacimiento,ciudad,nivelEducacional,ocupacion;
+    private char dv_run;
+    private int sueldo,c_id_nEducacional,c_id_ciudad,c_id_ocupacion;
+    private boolean cuenta_existente;
 
     public Cliente() {
     }
 
-    public Cliente(String idCliente, String rutCliente, String dvrutCliente, String nombreCliente, String generoCliente, String direccionCliente, String emailCliente, String ecivilCliente, Integer sueldoCliente, Date fechaNcacimiento) {
-        this.idCliente = idCliente;
-        this.rutCliente = rutCliente;
-        this.dvrutCliente = dvrutCliente;
-        this.nombreCliente = nombreCliente;
-        this.generoCliente = generoCliente;
-        this.direccionCliente = direccionCliente;
-        this.emailCliente = emailCliente;
-        this.ecivilCliente = ecivilCliente;
-        this.sueldoCliente = sueldoCliente;
-        this.fechaNcacimiento = fechaNcacimiento;
+    public Cliente(String run, String nombre, String genero, String direccion, String email, String eCivil, String fNacimiento, String ciudad, String nivelEducacional, String ocupacion, char dv_run, int sueldo, int c_id_nEducacional, int c_id_ciudad, int c_id_ocupacion, boolean cuenta_existente) {
+        this.run = run;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.direccion = direccion;
+        this.email = email;
+        this.eCivil = eCivil;
+        this.fNacimiento = fNacimiento;
+        this.ciudad = ciudad;
+        this.nivelEducacional = nivelEducacional;
+        this.ocupacion = ocupacion;
+        this.dv_run = dv_run;
+        this.sueldo = sueldo;
+        this.c_id_nEducacional = c_id_nEducacional;
+        this.c_id_ciudad = c_id_ciudad;
+        this.c_id_ocupacion = c_id_ocupacion;
+        this.cuenta_existente = cuenta_existente;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
-    public String getRutCliente() {
-        return rutCliente;
+    public String getRun() {
+        return run;
     }
 
-    public void setRutCliente(String rutCliente) {
-        this.rutCliente = rutCliente;
+    public void setRun(String run) {
+        this.run = run;
     }
 
-    public String getDvrutCliente() {
-        return dvrutCliente;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDvrutCliente(String dvrutCliente) {
-        this.dvrutCliente = dvrutCliente;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public char getDv_run() {
+        return dv_run;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public void setDv_run(char dv_run) {
+        this.dv_run = dv_run;
     }
 
-    public String getGeneroCliente() {
-        return generoCliente;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setGeneroCliente(String generoCliente) {
-        this.generoCliente = generoCliente;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
-    public String getDireccionCliente() {
-        return direccionCliente;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDireccionCliente(String direccionCliente) {
-        this.direccionCliente = direccionCliente;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getEmailCliente() {
-        return emailCliente;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getEcivilCliente() {
-        return ecivilCliente;
+    public String geteCivil() {
+        return eCivil;
     }
 
-    public void setEcivilCliente(String ecivilCliente) {
-        this.ecivilCliente = ecivilCliente;
+    public void seteCivil(String eCivil) {
+        this.eCivil = eCivil;
     }
 
-    public Integer getSueldoCliente() {
-        return sueldoCliente;
+    public String getfNacimiento() {
+        return fNacimiento;
     }
 
-    public void setSueldoCliente(Integer sueldoCliente) {
-        this.sueldoCliente = sueldoCliente;
+    public void setfNacimiento(String fNacimiento) {
+        this.fNacimiento = fNacimiento;
     }
 
-    public Date getFechaNcacimiento() {
-        return fechaNcacimiento;
+    public void setNivelEducacional(String nivelEducacional) {
+        this.nivelEducacional = nivelEducacional;
     }
 
-    public void setFechaNcacimiento(Date fechaNcacimiento) {
-        this.fechaNcacimiento = fechaNcacimiento;
+    public String getNivelEducacional() {
+        return nivelEducacional;
+    }
+    
+    public int getSueldo() {
+        return sueldo;
     }
 
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public int getC_id_nEducacional() {
+        return c_id_nEducacional;
+    }
+
+    public void setC_id_nEducacional(int c_id_nEducacional) {
+        this.c_id_nEducacional = c_id_nEducacional;
+    }
+
+    public int getC_id_ciudad() {
+        return c_id_ciudad;
+    }
+
+    public void setC_id_ciudad(int c_id_ciudad) {
+        this.c_id_ciudad = c_id_ciudad;
+    }
+
+    public int getC_id_ocupacion() {
+        return c_id_ocupacion;
+    }
+
+    public void setC_id_ocupacion(int c_id_ocupacion) {
+        this.c_id_ocupacion = c_id_ocupacion;
+    }
+
+    public boolean isCuenta_existente() {
+        return cuenta_existente;
+    }
+
+    public void setCuenta_existente(boolean cuenta_existente) {
+        this.cuenta_existente = cuenta_existente;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", rutCliente=" + rutCliente + ", dvrutCliente=" + dvrutCliente + ", nombreCliente=" + nombreCliente + ", generoCliente=" + generoCliente + ", direccionCliente=" + direccionCliente + ", emailCliente=" + emailCliente + ", ecivilCliente=" + ecivilCliente + ", sueldoCliente=" + sueldoCliente + ", fechaNcacimiento=" + fechaNcacimiento + '}';
-    }
-
-    
-
-    
-    
-
-  
+        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }         
     
 }

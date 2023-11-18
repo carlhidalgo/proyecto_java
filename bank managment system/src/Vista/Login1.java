@@ -18,6 +18,7 @@ public class Login1 extends javax.swing.JFrame {
     public Login1() {
         initComponents();
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,25 +261,12 @@ public class Login1 extends javax.swing.JFrame {
     
     public void procesarLogin(String pin, String numeroTarjeta) {
     // Aquí puedes llamar a métodos del controlador para manejar el inicio de sesión
-    Cuenta cuenta = new Cuenta(pin, numeroTarjeta);
+    Cuenta cuenta = new Cuenta();
+
+    
+   
 
    
-   
-
-    try {
-        exito = loginController.verificarCredenciales(pin, numeroTarjeta);
-    } catch (Exception e) {
-        exito = false;
-    }
-
-    // Lógica para manejar el resultado en la interfaz de usuario
-    if (exito) {
-        // Puedes redirigir a la próxima pantalla o hacer otras acciones aquí
-        // Por ejemplo, abrir la pantalla de inicio (Inicio i1)
-        Inicio i1 = new Inicio();
-        i1.setVisible(true);
-        this.setVisible(false);
-    }
     // No necesitas manejar el caso de error aquí, ya que ya se maneja en verificarCredenciales.
 }
     public String getNiumeroTarjeta() {

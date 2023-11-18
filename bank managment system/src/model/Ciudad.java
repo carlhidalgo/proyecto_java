@@ -10,38 +10,37 @@ package model;
  */
 public class Ciudad {
     
-    private String idCiudad;
-    private String nombreCiudad;
+    private String id_Ciudad;
+    private String nombre_Ciudad;
 
     public Ciudad() {
     }
 
-    public Ciudad(String idCiudad, String nombreCiudad) {
-        this.idCiudad = idCiudad;
-        this.nombreCiudad = nombreCiudad;
+    public Ciudad(String id_Ciudad, String nombre_Ciudad) {
+        this.id_Ciudad = id_Ciudad;
+        this.nombre_Ciudad = nombre_Ciudad;
     }
 
-    public String getIdCiudad() {
-        return idCiudad;
+    public String getId_Ciudad() {
+        return id_Ciudad;
     }
 
-    public void setIdCiudad(String idCiudad) {
-        this.idCiudad = idCiudad;
+    public void setId_Ciudad(String id_Ciudad) {
+        this.id_Ciudad = id_Ciudad;
     }
 
-    public String getNombreCiudad() {
-        return nombreCiudad;
+    public String getNombre_Ciudad() {
+        return nombre_Ciudad;
     }
 
-    public void setNombreCiudad(String nombreCiudad) {
-        this.nombreCiudad = nombreCiudad;
+    public void setNombre_Ciudad(String nombre_Ciudad) {
+        this.nombre_Ciudad = nombre_Ciudad;
     }
 
     @Override
     public String toString() {
-        return "Ciudad{" + "idCiudad=" + idCiudad + ", nombreCiudad=" + nombreCiudad + '}';
+        return "Ciudad{" + "id_Ciudad=" + id_Ciudad + ", nombre_Ciudad=" + nombre_Ciudad + '}';
     }
-    
-    
+
     
 }

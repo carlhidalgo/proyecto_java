@@ -9,66 +9,47 @@ package model;
  * @author carlos
  */
 public class Cuenta {
-    private int idCuenta;
-    private String numeroTarjeta;
-    private String pin;
-    private Integer saldo;
-    private String cvv;
     
-    // Otros atributos...
-
-    // Constructor, getters y setters
+    private String nro_tarjeta, pinNumber, tipoCuenta, cvv, rut_cliente, servicios;
+    private int saldo;
+    private boolean estado;
 
     public Cuenta() {
     }
 
-    public Cuenta(int idCuenta, String numeroTarjeta, String pin, Integer saldo, String cvv) {
-        this.idCuenta = idCuenta;
-        this.numeroTarjeta = numeroTarjeta;
-        this.pin = pin;
-        this.saldo = saldo;
+    public Cuenta(String nro_tarjeta, String pinNumber, String tipoCuenta, String cvv, String rut_cliente, String servicios, int saldo, boolean estado) {
+        this.nro_tarjeta = nro_tarjeta;
+        this.pinNumber = pinNumber;
+        this.tipoCuenta = tipoCuenta;
         this.cvv = cvv;
-    }
-
-    
-    
-    
-    
-    
-    
-    
-//    getter y setter
-
-    public int getIdCuenta() {
-        return idCuenta;
-    }
-
-    public void setIdCuenta(int idCuenta) {
-        this.idCuenta = idCuenta;
-    }
-
-    public String getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
-
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
-
-    public String getPin() {
-        return pin;
-    }
-
-    public void setPin(String pin) {
-        this.pin = pin;
-    }
-
-    public Integer getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(Integer saldo) {
+        this.rut_cliente = rut_cliente;
+        this.servicios = servicios;
         this.saldo = saldo;
+        this.estado = estado;
+    }
+
+    public String getNro_tarjeta() {
+        return nro_tarjeta;
+    }
+
+    public void setNro_tarjeta(String nro_tarjeta) {
+        this.nro_tarjeta = nro_tarjeta;
+    }
+
+    public String getPinNumber() {
+        return pinNumber;
+    }
+
+    public void setPinNumber(String pinNumber) {
+        this.pinNumber = pinNumber;
+    }
+
+    public String getTipoCuenta() {
+        return tipoCuenta;
+    }
+
+    public void setTipoCuenta(String tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
     }
 
     public String getCvv() {
@@ -79,12 +60,42 @@ public class Cuenta {
         this.cvv = cvv;
     }
 
+    public String getRut_cliente() {
+        return rut_cliente;
+    }
+
+    public void setRut_cliente(String rut_cliente) {
+        this.rut_cliente = rut_cliente;
+    }
+
+    public String getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(String servicios) {
+        this.servicios = servicios;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
-        return "Cuenta{" + "idCuenta=" + idCuenta + ", numeroTarjeta=" + numeroTarjeta + ", pin=" + pin + ", saldo=" + saldo + ", cvv=" + cvv + '}';
+        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-   
-
-
     
 }
+

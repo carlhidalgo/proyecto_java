@@ -42,6 +42,10 @@ public class NivelEducacion {
     public String toString() {
         return "NivelEducacion{" + "idEducacion=" + idEducacion + ", nombreEducacion=" + nombreEducacion + '}';
     }
+
+    public void setNivelEducacion(NivelEducacion educacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }

@@ -6,44 +6,53 @@ package model;
 
 import java.util.Date;
 
-/**
- *
- * @author carlos
- */
-public class Movimiento {
-    private String idMov;
-    private Date fechaMov;
-    // Otros atributos...
 
-    // Constructor, getters y setters
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
+public class Movimiento {
+    private LocalDate fecha;
+    private int monto;
+    private String[][] cartola;
 
     public Movimiento() {
     }
 
-    public Movimiento(String idMov, Date fechaMov) {
-        this.idMov = idMov;
-        this.fechaMov = fechaMov;
+    public Movimiento(LocalDate fecha, int monto) {
+        this.fecha = fecha;
+        this.monto = monto;
     }
 
-    public String getIdMov() {
-        return idMov;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setIdMov(String idMov) {
-        this.idMov = idMov;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
-    public Date getFechaMov() {
-        return fechaMov;
+    public int getMonto() {
+        return monto;
     }
 
-    public void setFechaMov(Date fechaMov) {
-        this.fechaMov = fechaMov;
+    public void setMonto(int monto) {
+        this.monto = monto;
     }
 
-    @Override
-    public String toString() {
-        return "Movimiento{" + "idMov=" + idMov + ", fechaMov=" + fechaMov + '}';
+    public String[][] getCartola() {
+        return cartola;
+    }
+
+    public void setCartola(String[][] cartola) {
+        this.cartola = cartola;
+    }
+    
+    public void guardar(String id_mov,String fecha, String monto, String tipo_mov){
+        String[] array = {id_mov,fecha,monto,tipo_mov};
+        cartola = Arrays.copyOf(cartola, cartola.length+1);
+        cartola[cartola.length] = array;
     }
     
 }

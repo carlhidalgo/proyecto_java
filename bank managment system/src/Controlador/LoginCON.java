@@ -30,45 +30,11 @@ public class LoginCON {
 
 
 // Método para verificar la existencia de un cliente en la base de datos
-public Cuenta verificarCredenciales(String pin,String numeroTarjeta) throws Exception {
-    Cuenta cuenta = new Cuenta();
     
-    try {
-            Conexion con = new Conexion();
-            Connection cnx = con.obtenerConexionOracle();
-            String query = "SELECT  FROM cliente WHERE pin = ? AND numero_tarjeta = ?";
-            
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(2, pin);
-            stmt.setString(3, numeroTarjeta);
-            
-            ResultSet rs = stmt.executeQuery();
-             
-                
-                if(rs.next()) {
-                    
-                 cuenta.setIdCuenta(rs.getInt("id_cuenta"));
-                 cuenta.setNumeroTarjeta(rs.getString("numero_tarjeta"));
-                 cuenta.setPin(rs.getString("pin"));
-                 cuenta.setSaldo(rs.getInt("saldo"));
-                 cuenta.setCvv(rs.getString("cvv"));
-                    
-                 
-            }
-            rs.close();
-            stmt.close();
-            cnx.close();
-            
-        } catch (SQLException e)  {
-            // Manejo de excepciones
-            System.out.println("Error sql al verificar credenciales: " + e.getMessage());
-            
-        }
-        return cuenta;
-    }
+    
 
-    // Método 
 
+    
  
 
 
