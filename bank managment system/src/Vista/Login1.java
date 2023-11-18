@@ -251,6 +251,7 @@ public class Login1 extends javax.swing.JFrame {
     }//GEN-LAST:event_limpiarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Inicio ini = new Inicio();
         String ctarjeta, cpin;
         ctarjeta= this.tarjeta.getText();
         cpin= String.valueOf(this.pin.getPassword());
@@ -272,6 +273,7 @@ public class Login1 extends javax.swing.JFrame {
                 ResultSet rs = cnx.Conn2(query);
                 if (rs.next()) {
                     setVisible(false);
+                    ini.setVisible(true);
               //      new Transaction(ctarjeta,cpin).setVisible(true);
                 } else{
                     JOptionPane.showMessageDialog(null, "Número de tarjeta o pin incorrecto. ");
