@@ -6,9 +6,9 @@ package Vista;
 
 import java.util.Date;
 import javax.swing.JTextField;
-import model.Cliente;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author gauge
@@ -16,7 +16,8 @@ import javax.swing.JOptionPane;
 public class Registrar1 extends javax.swing.JFrame {
    
     private Login1 l1; //variable login para ocultar o mostrar la ventana
-    Registrar2 v2 = new Registrar2(); //inicializa registro 2 para usar más tarde
+ //   Registrar2 v2 = new Registrar2(); //inicializa registro 2 para usar más tarde
+    String run;
     public Registrar1() {
         
         initComponents();
@@ -376,18 +377,14 @@ public class Registrar1 extends javax.swing.JFrame {
         }
         
             else{
-   
-        char dv_run = run.charAt(run.length()-1);
+
+  
+
+      
         Integer sueldo = Integer.valueOf(sueldo2); // 11
-        Cliente cliente = new Cliente();
-        cliente.setSueldo(sueldo);
-        cliente.setNombre(name);
-        cliente.setRun(run);// 3   
-        cliente.setDv_run(dv_run);//4
-        cliente.setGenero(genero);
-        cliente.setEmail(email);// 7  
-        cliente.seteCivil(ecivil);
-        cliente.setfNacimiento(fNacimiento);
+        
+        Registrar2 v2 = new Registrar2(name,run,sueldo,genero,email,ecivil,fNacimiento);
+
         v2.setV1(this);
         v2.setVisible(true);
         this.setVisible(false);

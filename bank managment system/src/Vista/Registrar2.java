@@ -3,10 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+
+import java.util.Random;
 import javax.swing.JOptionPane;
 import model.Ciudad;
+import model.Cliente;
 import model.NivelEducacion;
 import model.Ocupacion;
+
 
 
 /**
@@ -14,13 +18,27 @@ import model.Ocupacion;
  * @author gauge
  */
 public class Registrar2 extends javax.swing.JFrame {
-    
-    
+
+    String name;
+    String run;
+    int sueldo;
+    String genero;
+    String email;
+    String ecivil;
+    String fNacimiento;
     private Registrar1 v1;
     /**
      * Creates new form Registrar2
      */
-    public Registrar2() {
+    public Registrar2(String name,String run, int sueldo,String genero,String email,String ecivil,String fNacimiento) {
+        this.name = name;
+        this.run = run;
+        this.sueldo = sueldo;
+        this.genero = genero;
+        this.email = email;
+        this.ecivil = ecivil;
+        this.fNacimiento = fNacimiento;
+       
         initComponents();
     }
 
@@ -33,8 +51,9 @@ public class Registrar2 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     public void setV1(Registrar1 v1){
         this.v1=v1;
+        String run;
+        run = v1.run;
     }
-    
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -327,7 +346,7 @@ public class Registrar2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         v1.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
@@ -380,8 +399,28 @@ public class Registrar2 extends javax.swing.JFrame {
             return;
 
         }  
+        else{
+//            Keygen kg = new Keygen();
+//            String cvv = Integer.toString((int) kg.keyCVV());
+//            String numeroTarjeta = "" + kg.keyTarjeta();
+//            String numeroPin = "" + kg.keyPin();
+           System.out.println(run + name );
+           char dv_run = run.charAt(run.length()-1);
+           Cliente cliente = new Cliente();
+           cliente.setSueldo(sueldo);
+           cliente.setNombre(name);
+           cliente.setRun(run);// 3   
+           cliente.setDv_run(dv_run);//4
+           cliente.setGenero(genero);
+           cliente.setEmail(email);// 7  
+           cliente.seteCivil(ecivil);
+           cliente.setfNacimiento(fNacimiento);
+          // cliente.set
+        
+        }
     
-    
+        
+        
     
     }//GEN-LAST:event_finalizarActionPerformed
 
@@ -412,37 +451,7 @@ public class Registrar2 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registrar2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registrar2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registrar2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registrar2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Registrar2().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -467,7 +476,5 @@ public class Registrar2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 
-    private String getNombredireccion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 }
