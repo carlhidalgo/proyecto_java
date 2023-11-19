@@ -252,39 +252,25 @@ public class Login1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Inicio ini = new Inicio();
-        String ctarjeta, cpin;
-        ctarjeta= this.tarjeta.getText();
-        cpin= String.valueOf(this.pin.getPassword());
-        
-        
-            if (ctarjeta.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingrese número de tarjeta", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.tarjeta.requestFocus();
-            return;
-        }else if (cpin.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingrese su pin", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.pin.requestFocus();
-            return;
-        }else{
-            // desde aca se debe conectar.
-        Conexion cnx = new Conexion();
-        String query = "select * from bankmanagmentsystem.cuenta where nro_tarjeta = '" + ctarjeta + "' and pin = '" + cpin + "';";
-                    try {
-                ResultSet rs = cnx.Conn2(query);
-                if (rs.next()) {
-                    setVisible(false);
-                    ini.setVisible(true);
-              //      new Transaction(ctarjeta,cpin).setVisible(true);
-                } else{
-                    JOptionPane.showMessageDialog(null, "Número de tarjeta o pin incorrecto. ");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Login1.class.getName()).log(Level.SEVERE, null, ex);
+        String ctarjeta = tarjeta.getText();
+    String cpin = String.valueOf(pin.getPassword());
+
+    if (ctarjeta.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingrese número de tarjeta", "Validación", JOptionPane.WARNING_MESSAGE);
+        tarjeta.requestFocus();
+        return;
+    } else if (cpin.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingrese su pin", "Validación", JOptionPane.WARNING_MESSAGE);
+        pin.requestFocus();
+        return;
+    } else {
+        // Use the LoginCON class for database interaction
+        if (!LoginCON.loginUser(ctarjeta, cpin)) {
+        } else {
+            setVisible(false);
+            ini.setVisible(true);
             }
-        
-        
-        
-        }
+    }
             
             
             
