@@ -326,7 +326,7 @@ public class Registrar1 extends javax.swing.JFrame {
         String email = cemail.getText();
         String ecivil = (String) cecivil.getSelectedItem();
         String fNacimiento = ((JTextField) cnacimiento.getDateEditor().getUiComponent()).getText(); // 9   
-
+        String sueldo2 = csueldo.getText();
         
         if (cmasculino.isSelected()) {
             genero = "masculino";
@@ -363,8 +363,8 @@ public class Registrar1 extends javax.swing.JFrame {
             return;    
             
          
-        }else if (email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingrese email", "Validación", JOptionPane.WARNING_MESSAGE);
+        }else if (sueldo2.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese su sueldo", "Validación", JOptionPane.WARNING_MESSAGE);
             this.cemail.requestFocus();
             return;
 
@@ -373,7 +373,7 @@ public class Registrar1 extends javax.swing.JFrame {
             else{
    
         char dv_run = run.charAt(run.length()-1);
-        Integer sueldo = Integer.valueOf(csueldo.getText()); // 11
+        Integer sueldo = Integer.valueOf(sueldo2); // 11
         Cliente cliente = new Cliente();
         cliente.setSueldo(sueldo);
         cliente.setNombre(name);
