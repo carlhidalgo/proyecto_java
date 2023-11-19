@@ -424,9 +424,9 @@ public class Registrar2 extends javax.swing.JFrame {
            cliente.setDireccion(direccion);
            
            // aqui va el llamo a controlador
-          // cliente.setC_id_nEducacional(2); 
-          // cliente.setC_id_ocupacion(2);
-         //  cliente.setC_id_ciudad(2);
+          cliente.setC_id_nEducacional(2); 
+          //cliente.setC_id_ocupacion();
+          cliente.setC_id_ciudad(2);
            cuenta.setCvv(cvv);
            cuenta.setNro_tarjeta(numeroTarjeta);
            cuenta.setPinNumber(numeroPin);

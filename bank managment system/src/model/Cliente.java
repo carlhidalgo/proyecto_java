@@ -15,7 +15,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String run, String nombre, String genero, String direccion, String email, String eCivil, String fNacimiento, String ciudad, String nivelEducacional, String ocupacion, char dv_run, int sueldo, int c_id_nEducacional, int c_id_ciudad, int c_id_ocupacion, boolean cuenta_existente) {
+    public Cliente(String run, String nombre, String genero, String direccion, String email, String eCivil, String fNacimiento, char dv_run, int sueldo, int c_id_nEducacional, int c_id_ciudad, int c_id_ocupacion, boolean cuenta_existente) {
         this.run = run;
         this.nombre = nombre;
         this.genero = genero;
@@ -23,24 +23,14 @@ public class Cliente {
         this.email = email;
         this.eCivil = eCivil;
         this.fNacimiento = fNacimiento;
-        this.ciudad = ciudad;
-        this.nivelEducacional = nivelEducacional;
-        this.ocupacion = ocupacion;
         this.dv_run = dv_run;
         this.sueldo = sueldo;
         this.c_id_nEducacional = c_id_nEducacional;
         this.c_id_ciudad = c_id_ciudad;
         this.c_id_ocupacion = c_id_ocupacion;
-        this.cuenta_existente = cuenta_existente;
+  
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
 
     public String getRun() {
         return run;
@@ -106,13 +96,6 @@ public class Cliente {
         this.fNacimiento = fNacimiento;
     }
 
-    public void setNivelEducacional(String nivelEducacional) {
-        this.nivelEducacional = nivelEducacional;
-    }
-
-    public String getNivelEducacional() {
-        return nivelEducacional;
-    }
     
     public int getSueldo() {
         return sueldo;
@@ -146,21 +129,6 @@ public class Cliente {
         this.c_id_ocupacion = c_id_ocupacion;
     }
 
-    public boolean isCuenta_existente() {
-        return cuenta_existente;
-    }
-
-    public void setCuenta_existente(boolean cuenta_existente) {
-        this.cuenta_existente = cuenta_existente;
-    }
-
-    public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
-    }
-
-    public String getOcupacion() {
-        return ocupacion;
-    }
 
     
     
