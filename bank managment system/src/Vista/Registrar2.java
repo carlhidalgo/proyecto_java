@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import javax.swing.JOptionPane;
 import model.Ciudad;
 import model.NivelEducacion;
 import model.Ocupacion;
@@ -38,6 +39,7 @@ public class Registrar2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -50,7 +52,7 @@ public class Registrar2 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cciudad = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cdeclaracion = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         ccorriente = new javax.swing.JRadioButton();
         cahorro = new javax.swing.JRadioButton();
@@ -113,7 +115,8 @@ public class Registrar2 extends javax.swing.JFrame {
         ceducacion.setEditable(true);
         ceducacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ceducacion.setForeground(new java.awt.Color(0, 0, 0));
-        ceducacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Básica", "Media", "Técnico", "Técnico Superior", "Universitaria incompleta", "Universitaria completa" }));
+        ceducacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Básica", "Media", "Técnico", "Técnico Superior", "Universitaria incompleta", "Universitaria completa" }));
+        ceducacion.setFocusable(false);
         ceducacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ceducacionActionPerformed(evt);
@@ -129,7 +132,8 @@ public class Registrar2 extends javax.swing.JFrame {
         cciudad.setEditable(true);
         cciudad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cciudad.setForeground(new java.awt.Color(0, 0, 0));
-        cciudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quilpue", "Quillota", "San Felipe", "San Antonio", "Villa Alemana ", "Valparaiso", "Viña del Mar" }));
+        cciudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Quilpue", "Quillota", "San Felipe", "San Antonio", "Villa Alemana ", "Valparaiso", "Viña del Mar" }));
+        cciudad.setFocusable(false);
         cciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cciudadActionPerformed(evt);
@@ -141,16 +145,17 @@ public class Registrar2 extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Nivel educacional:");
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox1.setText("Declaro que la información entregada y requerida es la correcta de acuerdo a mis conocimientos");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cdeclaracion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cdeclaracion.setText("Declaro que la información entregada y requerida es la correcta de acuerdo a mis conocimientos");
+        cdeclaracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cdeclaracionActionPerformed(evt);
             }
         });
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
+        buttonGroup1.add(ccorriente);
         ccorriente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ccorriente.setForeground(new java.awt.Color(51, 51, 51));
         ccorriente.setText("Corriente");
@@ -160,6 +165,7 @@ public class Registrar2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cahorro);
         cahorro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cahorro.setForeground(new java.awt.Color(51, 51, 51));
         cahorro.setText("Ahorro");
@@ -189,6 +195,7 @@ public class Registrar2 extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Seleccione la cuenta que desea crear:");
 
+        buttonGroup1.add(cvista);
         cvista.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cvista.setForeground(new java.awt.Color(51, 51, 51));
         cvista.setText("Vista");
@@ -202,7 +209,13 @@ public class Registrar2 extends javax.swing.JFrame {
         cocupacion.setEditable(true);
         cocupacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cocupacion.setForeground(new java.awt.Color(0, 0, 0));
-        cocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cesante", "Servicios domesticos", "Industria agricultura", "Industria Minería/ Petroleo", "Industrias manofactureras", "Electricidad, gas, agua", "Construcción", "Comercio general", "Restaruant, cafe y otros", "Transporte, Almacenamiento y comunicaciones", "Finanzas, inmuebles, seguros", "Servicios estatales", "Servicios médicos y odontológicos", "Otros" }));
+        cocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cesante", "Servicios domesticos", "Industria agricultura", "Industria Minería/ Petroleo", "Industrias manofactureras", "Electricidad, gas, agua", "Construcción", "Comercio general", "Restaruant, cafe y otros", "Transporte, Almacenamiento y comunicaciones", "Finanzas, inmuebles, seguros", "Servicios estatales", "Servicios médicos y odontológicos", "Otros" }));
+        cocupacion.setFocusable(false);
+        cocupacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cocupacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -219,8 +232,8 @@ public class Registrar2 extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(92, 92, 92)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cciudad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cdireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cdireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                                    .addComponent(cciudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(92, 92, 92)
@@ -246,7 +259,7 @@ public class Registrar2 extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(34, Short.MAX_VALUE)
-                        .addComponent(jCheckBox1)
+                        .addComponent(cdeclaracion)
                         .addGap(14, 14, 14)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -286,7 +299,7 @@ public class Registrar2 extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cvista))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(cdeclaracion)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,14 +311,11 @@ public class Registrar2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -327,7 +337,7 @@ public class Registrar2 extends javax.swing.JFrame {
     String ciudad = (String) cciudad.getSelectedItem();
     String nivelEducacional = (String) ceducacion.getSelectedItem();
     String ocupacion = (String) cocupacion.getSelectedItem();
-
+    boolean declaracionCorrecta = false;
     if (cvista.isSelected()) {
         tipoCuenta = "Vista";
     } else if (ccorriente.isSelected()) {
@@ -337,11 +347,41 @@ public class Registrar2 extends javax.swing.JFrame {
     } else{
         tipoCuenta ="";
     }
-    // Verificar si se ha marcado la declaración
-    boolean declaracionCorrecta = jCheckBox1.isSelected();
+            if (cdeclaracion.isSelected()) {
+                declaracionCorrecta = true;
+            } else{
+                declaracionCorrecta = false;
+            }
+        if (direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese direccion", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cdireccion.requestFocus();
+            return;   
+            
+        }else if (ciudad.equalsIgnoreCase("Seleccionar")) {
+            JOptionPane.showMessageDialog(this, "Selecione una ciudad", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cciudad.requestFocus();
+            return;
+            
+        }else if (nivelEducacional.equalsIgnoreCase("Seleccionar")) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar nivel educacional", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.ceducacion.requestFocus();
+            return;    
+        }else if (ocupacion.equalsIgnoreCase("Seleccionar")) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar ocupacion", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cocupacion.requestFocus();
+            return;    
+        }else if (tipoCuenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar que tipo de cuenta desea crear", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;  
+            
+         
+        }else if (declaracionCorrecta==false) {
+            JOptionPane.showMessageDialog(this, "Debe completar el campo de declaracion", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;
+
+        }  
     
-    // Realizar las acciones necesarias con los datos (por ejemplo, guardar en la base de datos)
-    // Aquí puedes llamar a tu método de guardar en la base de datos
+    
     
     }//GEN-LAST:event_finalizarActionPerformed
 
@@ -349,9 +389,9 @@ public class Registrar2 extends javax.swing.JFrame {
     
     }//GEN-LAST:event_cciudadActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cdeclaracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdeclaracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cdeclaracionActionPerformed
 
     private void cvistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cvistaActionPerformed
         // TODO add your handling code here:
@@ -364,6 +404,10 @@ public class Registrar2 extends javax.swing.JFrame {
     private void ceducacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceducacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ceducacionActionPerformed
+
+    private void cocupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cocupacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cocupacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,16 +445,17 @@ public class Registrar2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton cahorro;
     private javax.swing.JComboBox<String> cciudad;
     private javax.swing.JRadioButton ccorriente;
+    private javax.swing.JCheckBox cdeclaracion;
     private javax.swing.JTextField cdireccion;
     private javax.swing.JComboBox<String> ceducacion;
     private javax.swing.JComboBox<String> cocupacion;
     private javax.swing.JRadioButton cvista;
     private javax.swing.JButton finalizar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

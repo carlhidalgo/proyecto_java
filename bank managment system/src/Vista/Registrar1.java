@@ -36,6 +36,7 @@ public class Registrar1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         cecivil = new javax.swing.JComboBox<>();
@@ -73,6 +74,7 @@ public class Registrar1 extends javax.swing.JFrame {
         cecivil.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cecivil.setForeground(new java.awt.Color(0, 0, 0));
         cecivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Soltero(a)", "Casado(a)", "Divorsiado(a)", "Viudo(a)" }));
+        cecivil.setFocusable(false);
         cecivil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cecivilActionPerformed(evt);
@@ -147,6 +149,7 @@ public class Registrar1 extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        buttonGroup1.add(cmasculino);
         cmasculino.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmasculino.setForeground(new java.awt.Color(51, 51, 51));
         cmasculino.setText("Masculino");
@@ -156,6 +159,7 @@ public class Registrar1 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cfemenino);
         cfemenino.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cfemenino.setForeground(new java.awt.Color(51, 51, 51));
         cfemenino.setText("Femenino");
@@ -165,6 +169,7 @@ public class Registrar1 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cnobinario);
         cnobinario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cnobinario.setForeground(new java.awt.Color(51, 51, 51));
         cnobinario.setText("No binario");
@@ -365,7 +370,7 @@ public class Registrar1 extends javax.swing.JFrame {
          
         }else if (sueldo2.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ingrese su sueldo", "Validación", JOptionPane.WARNING_MESSAGE);
-            this.cemail.requestFocus();
+            this.csueldo.requestFocus();
             return;
 
         }
@@ -449,6 +454,7 @@ public class Registrar1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botonatras1;
     private javax.swing.JButton Botonsiguiente;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cecivil;
     private javax.swing.JTextField cemail;
     private javax.swing.JRadioButton cfemenino;
