@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 
 
@@ -27,7 +28,23 @@ public class LoginCON {
         
     }
     
+public static boolean loginUser(String ctarjeta, String cpin) {
+        Conexion cnx = new Conexion();
+        String query = "select * from bankmanagmentsystem.cuenta where nro_tarjeta = '" + ctarjeta + "' and pin = '" + cpin + "';";
 
+        try {
+            ResultSet rs = cnx.Conn2(query);
+            if (rs.next()) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Número de tarjeta o pin incorrecto. ");
+                return false;
+            }
+        } catch (SQLException ex) {
+            
+            return false;
+        }
+    }
 
 // Método para verificar la existencia de un cliente en la base de datos
     
