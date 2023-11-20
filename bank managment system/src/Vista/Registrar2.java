@@ -412,12 +412,12 @@ public class Registrar2 extends javax.swing.JFrame {
         else{
             OcupacionCON ocu = new OcupacionCON();
              int id_ocu = ocu.BuscarId(ocupacion);
+//             int id_ocu = 550;
             Keygen kg = new Keygen();
             String cvv = Integer.toString((int) kg.keyCVV());
             String numeroTarjeta = "" + kg.keyTarjeta();
             String numeroPin = "" + kg.keyPin();
-           System.out.println(run + name );
-           String dv_run = run.substring(-1);
+           System.out.println(run + name);
            Cliente cliente = new Cliente(); // objeto cliente
            Cuenta cuenta = new Cuenta();  //objeto cuenta
            cliente.setSueldo(sueldo);

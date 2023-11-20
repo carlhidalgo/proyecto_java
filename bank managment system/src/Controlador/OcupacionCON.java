@@ -25,7 +25,7 @@ public class OcupacionCON {
 
 
         
-public int BuscarId(String nivelEducacional) {
+public int BuscarId(String nivelOcupacional) {
         //trycatch+tab
         Ocupacion ocupacion = new Ocupacion();
 
@@ -33,7 +33,7 @@ public int BuscarId(String nivelEducacional) {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "select id_ocupacion FROM bankmanagmentsystem.nombre_ocupacion where nombre_educacion = '" + nivelEducacional +"';";  
+            String query = "select id_ocupacion FROM bankmanagmentsystem.nombre_ocupacion where nombre_educacion = '" + nivelOcupacional +"';";  
             PreparedStatement stmt = cnx.prepareStatement(query);
 //            stmt.setString(2, nivelEducacional);
             ResultSet rs = stmt.executeQuery();
