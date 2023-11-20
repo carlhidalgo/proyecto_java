@@ -10,14 +10,14 @@ package model;
  */
 public class Cuenta {
     
-    private String nro_tarjeta, pinNumber, tipoCuenta, cvv, rut_cliente;
-    private int saldo;
+    private String nro_tarjeta, pinNumber, cvv, rut_cliente;
+    private int saldo, tipoCuenta;
     private boolean estado;
 
     public Cuenta() {
     }
 
-    public Cuenta(String nro_tarjeta, String pinNumber, String tipoCuenta, String cvv, String rut_cliente, int saldo, boolean estado) {
+    public Cuenta(String nro_tarjeta, String pinNumber, int tipoCuenta, String cvv, String rut_cliente, int saldo, boolean estado) {
         this.nro_tarjeta = nro_tarjeta;
         this.pinNumber = pinNumber;
         this.tipoCuenta = tipoCuenta;
@@ -41,14 +41,6 @@ public class Cuenta {
 
     public void setPinNumber(String pinNumber) {
         this.pinNumber = pinNumber;
-    }
-
-    public String getTipoCuenta() {
-        return tipoCuenta;
-    }
-
-    public void setTipoCuenta(String tipoCuenta) {
-        this.tipoCuenta = tipoCuenta;
     }
 
     public String getCvv() {
@@ -75,17 +67,20 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
+    public int getTipoCuenta() {
+        return tipoCuenta;
+    }
+
+    public void setTipoCuenta(int tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
+    }
+
     public boolean isEstado() {
         return estado;
     }
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
-
-    @Override
-    public String toString() {
-        return "Cuenta{" + "nro_tarjeta=" + nro_tarjeta + ", pinNumber=" + pinNumber + ", tipoCuenta=" + tipoCuenta + ", cvv=" + cvv + ", rut_cliente=" + rut_cliente + ", saldo=" + saldo + ", estado=" + estado + '}';
     }
 
     

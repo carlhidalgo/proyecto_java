@@ -24,13 +24,12 @@ public class NivelEducacionCON {
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
-            String query = "select id_nEducacion FROM bankmanagmentsystem.nivel_educacional where nombre_educacion = '" + nombreEducacion + "';";
+            String query = "select id_nEducacional FROM bankmanagmentsystem.nivel_educacional where nombre_educacion = '" + nombreEducacion + "';";
             PreparedStatement stmt = cnx.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                educacion.setIdEducacion(rs.getInt("id_educacion"));
+                educacion.setIdEducacion(rs.getInt("id_nEducacional"));
             }
-            System.out.println(educacion);
             rs.close();
             stmt.close();
             cnx.close();

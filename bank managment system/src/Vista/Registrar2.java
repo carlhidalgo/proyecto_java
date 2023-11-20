@@ -4,9 +4,12 @@
  */
 package Vista;
 
+import Controlador.CiudadCON;
 import Controlador.ClienteDAO;
+import Controlador.CuentaDAO;
 import Controlador.NivelEducacionCON;
 import Controlador.OcupacionCON;
+import Controlador.TipoCuentaCON;
 import java.sql.SQLException;
 import utils.Keygen;
 import java.util.Random;
@@ -18,6 +21,7 @@ import model.Cliente;
 import model.Cuenta;
 import model.NivelEducacion;
 import model.Ocupacion;
+import model.TipoCuenta;
 
 /**
  *
@@ -450,17 +454,24 @@ private void cdireccionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-F
             Ocupacion ocuCOnsulta = ocu.BuscarId(ocup.getNombre()); 
             // int id_ocu = 550;
             
-            
-            
             NivelEducacion nivel = new NivelEducacion();//instancio
             nivel.setNombreEducacion(nivelEducacional);
             NivelEducacionCON nivelbusquedaid = new NivelEducacionCON(); //instancio
             //lo que retorna   =  lo que busca
             NivelEducacion nivelCOnsulta = nivelbusquedaid.BuscarId(nivel.getNombreEducacion()); 
             
+            Ciudad ciudadalmacen = new Ciudad();//instancio
+            ciudadalmacen.setNombre_Ciudad(ciudad);
+            CiudadCON ciudadlbusquedaid = new CiudadCON(); //instancio
+            //lo que retorna   =  lo que busca
+            Ciudad ciudadCOnsulta = ciudadlbusquedaid.BuscarId(ciudadalmacen.getNombre_Ciudad()); 
             
-            System.out.println(nivelCOnsulta);
-            
+            TipoCuenta cuentaalmacen = new TipoCuenta();//instancio
+            cuentaalmacen.setNombreCuenta(tipoCuenta);
+            TipoCuentaCON cuentabusquedaid = new TipoCuentaCON(); //instancio
+            //lo que retorna   =  lo que busca
+            TipoCuenta tipoConsulta = cuentabusquedaid.BuscarId(cuentaalmacen.getNombreCuenta()); 
+ 
 
             Keygen kg = new Keygen();
             String cvv = Integer.toString((int) kg.keyCVV());
@@ -478,39 +489,35 @@ private void cdireccionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-F
             cliente.setfNacimiento(fNacimiento);
             cliente.setDireccion(direccion);
             cliente.setC_id_nEducacional(nivelCOnsulta.getIdEducacion());
-            cliente.setC_id_ciudad(2);
+            cliente.setC_id_ciudad(ciudadCOnsulta.getId_Ciudad());
             cliente.setC_id_ocupacion(ocuCOnsulta.getIdOcupacion());
+            cuenta.setTipoCuenta(tipoConsulta.getIdTipoCuenta());
             cuenta.setCvv(cvv);
             cuenta.setNro_tarjeta(numeroTarjeta);
             cuenta.setPinNumber(numeroPin);
             cuenta.setRut_cliente(run);
             cuenta.setEstado(true);
-            cuenta.setTipoCuenta("5");
             cuenta.setSaldo(0);
 
             // Use the LoginCON class for database interaction
             ClienteDAO reg = new ClienteDAO();
             try {
                 if (reg.agregar(cliente)) {
-                    JOptionPane.showMessageDialog(this, "Se agregó libro", "Información",
-                            JOptionPane.INFORMATION_MESSAGE);
-
+                     CuentaDAO regc = new CuentaDAO();
+                     if (regc.agregarCuenta(cuenta,cliente)){
+                         JOptionPane.showMessageDialog(this, "Pin: " + numeroPin + " Número de cuenta: " + numeroTarjeta + " Cvv: " + cvv, "Información",JOptionPane.INFORMATION_MESSAGE);
+                         
+                     }else {
+                         JOptionPane.showMessageDialog(this, "Problemas con el servicio, intente más tarde", "Información",
+                                 JOptionPane.INFORMATION_MESSAGE); 
+                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "No Se agregó libro", "Información",
+                    JOptionPane.showMessageDialog(this, "Problemas con el servicio, intente más tarde", "Información",
                             JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Registrar2.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            JOptionPane.showMessageDialog(this,
-                    "Pin: " + numeroPin + " Número de cuenta: " + numeroTarjeta + " Cvv: " + cvv, "Validación",
-                    JOptionPane.WARNING_MESSAGE);
-
-            // aqui inserto datos a cliente
-
-            // aqui inserto datos a cuenta
-
         }
 
     }// GEN-LAST:event_finalizarActionPerformed

@@ -10,22 +10,22 @@ package model;
  */
 public class Ciudad {
     
-    private String id_Ciudad;
+    private int id_Ciudad;
     private String nombre_Ciudad;
 
     public Ciudad() {
     }
 
-    public Ciudad(String id_Ciudad, String nombre_Ciudad) {
+    public Ciudad(int id_Ciudad, String nombre_Ciudad) {
         this.id_Ciudad = id_Ciudad;
         this.nombre_Ciudad = nombre_Ciudad;
     }
 
-    public String getId_Ciudad() {
+    public int getId_Ciudad() {
         return id_Ciudad;
     }
 
-    public void setId_Ciudad(String id_Ciudad) {
+    public void setId_Ciudad(int id_Ciudad) {
         this.id_Ciudad = id_Ciudad;
     }
 

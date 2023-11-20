@@ -23,3 +23,5 @@ public class TablaCartola extends JFrame{
     }
     
 }
+
+

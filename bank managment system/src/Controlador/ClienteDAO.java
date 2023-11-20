@@ -47,7 +47,7 @@ public boolean agregar(Cliente cliente) throws SQLException {
             return true;
         }
      catch (SQLException e) {
-            System.out.println("Error SQL al agregar libro " + e.getMessage());
+            System.out.println("Error SQL al agregar datos " + e.getMessage());
             return false;
     
 }

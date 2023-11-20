@@ -11,6 +11,7 @@ import bd.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Date;
+import model.Cliente;
 
 /**
  *
@@ -40,26 +41,29 @@ public class CuentaDAO {
         return false;
     }
 
-    public void agregarCuenta(Cuenta cuenta) {
+    public boolean agregarCuenta(Cuenta cuenta,Cliente cliente) {
         try {
             Conexion con = new Conexion();
             Connection cnx = con.obtenerConexion();
 
-            String query = "INSERT INTO bankmanagmentsystem.cuenta (nro_tarjeta, pinNumber, saldo, cvv, estado,run_cliente,tipo_cuenta) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO bankmanagmentsystem.cuenta (nro_tarjeta, pin, saldo, cvv, estado,run_cliente,tipo_cuenta) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, cuenta.getNro_tarjeta());
             stmt.setString(2, cuenta.getPinNumber());
             stmt.setInt(3, cuenta.getSaldo());
             stmt.setString(4, cuenta.getCvv());
             stmt.setBoolean(5, cuenta.isEstado());
-            stmt.setString(6, cuenta.getTipoCuenta());
+            stmt.setString(6, cliente.getRun());
+            stmt.setInt(7, cuenta.getTipoCuenta());
 
             stmt.executeUpdate();
 
             stmt.close();
             cnx.close();
+            return true;
         } catch (SQLException e) {
             System.out.println("Error SQL al agregar cuenta: " + e.getMessage());
+            return false;
         }
     }
 
