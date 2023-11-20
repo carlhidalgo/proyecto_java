@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-import Controlador.LoginCON;
+import Controlador.CuentaDAO;
 import bd.Conexion;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -264,25 +264,16 @@ public class Login1 extends javax.swing.JFrame {
         pin.requestFocus();
         return;
     } else {
+        CuentaDAO con = new CuentaDAO();
         // Use the LoginCON class for database interaction
-        if (!LoginCON.loginUser(ctarjeta, cpin)) {
+        if (con.loginCuenta(ctarjeta, cpin)) {
         } else {
-            setVisible(false);
+            this.dispose();
             ini.setVisible(true);
-            }
+        }
     }
             
-            
-            
-            
-               
-                
 
-                
-                
-//        i1.setL1(this);
-//        i1.setVisible(true);
-//        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaActionPerformed

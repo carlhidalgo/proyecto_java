@@ -4,10 +4,13 @@
  */
 package Vista;
 
+import Controlador.OcupacionCON;
+import utils.Keygen;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import model.Ciudad;
 import model.Cliente;
+import model.Cuenta;
 import model.NivelEducacion;
 import model.Ocupacion;
 
@@ -134,7 +137,7 @@ public class Registrar2 extends javax.swing.JFrame {
         ceducacion.setEditable(true);
         ceducacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ceducacion.setForeground(new java.awt.Color(0, 0, 0));
-        ceducacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Básica", "Media", "Técnico", "Técnico Superior", "Universitaria incompleta", "Universitaria completa" }));
+        ceducacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Enseñanza básica", "Enseñanza media", "Técnico", "Universitaria incompleta", "Universitaria", "Posgrado" }));
         ceducacion.setFocusable(false);
         ceducacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +154,7 @@ public class Registrar2 extends javax.swing.JFrame {
         cciudad.setEditable(true);
         cciudad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cciudad.setForeground(new java.awt.Color(0, 0, 0));
-        cciudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Quilpue", "Quillota", "San Felipe", "San Antonio", "Villa Alemana ", "Valparaiso", "Viña del Mar" }));
+        cciudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Peña Blanca", "Quilpué", "Valparaíso", "Viña del Mar", "Villa Alemana" }));
         cciudad.setFocusable(false);
         cciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,7 +231,7 @@ public class Registrar2 extends javax.swing.JFrame {
         cocupacion.setEditable(true);
         cocupacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cocupacion.setForeground(new java.awt.Color(0, 0, 0));
-        cocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cesante", "Servicios domesticos", "Industria agricultura", "Industria Minería/ Petroleo", "Industrias manofactureras", "Electricidad, gas, agua", "Construcción", "Comercio general", "Restaruant, cafe y otros", "Transporte, Almacenamiento y comunicaciones", "Finanzas, inmuebles, seguros", "Servicios estatales", "Servicios médicos y odontológicos", "Otros" }));
+        cocupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Emprendedor", "Asalariado", "CEO", "Estudiante", "Cesante", "Jubilado" }));
         cocupacion.setFocusable(false);
         cocupacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,11 +361,11 @@ public class Registrar2 extends javax.swing.JFrame {
     String ocupacion = (String) cocupacion.getSelectedItem();
     boolean declaracionCorrecta = false;
     if (cvista.isSelected()) {
-        tipoCuenta = "Vista";
+        tipoCuenta = "Cuenta Vista";
     } else if (ccorriente.isSelected()) {
-        tipoCuenta = "Corriente";
+        tipoCuenta = "Cuenta Corriente";
     } else if (cahorro.isSelected()) {
-        tipoCuenta = "Ahorro";
+        tipoCuenta = "Cuenta Ahorro";
     } else{
         tipoCuenta ="";
     }
@@ -398,24 +401,54 @@ public class Registrar2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe completar el campo de declaracion", "Validación", JOptionPane.WARNING_MESSAGE);
             return;
 
-        }  
+        }else if(tipoCuenta.equals("Cuenta Corriente")&&(sueldo<800000)){
+            JOptionPane.showMessageDialog(this, "Para seleccionar una cuenta corriente debe acreditar un sueldo sobre $800.000 ", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
         else{
-//            Keygen kg = new Keygen();
-//            String cvv = Integer.toString((int) kg.keyCVV());
-//            String numeroTarjeta = "" + kg.keyTarjeta();
-//            String numeroPin = "" + kg.keyPin();
+            Keygen kg = new Keygen();
+            String cvv = Integer.toString((int) kg.keyCVV());
+            String numeroTarjeta = "" + kg.keyTarjeta();
+            String numeroPin = "" + kg.keyPin();
            System.out.println(run + name );
            char dv_run = run.charAt(run.length()-1);
-           Cliente cliente = new Cliente();
+           Cliente cliente = new Cliente(); // objeto cliente
+           Cuenta cuenta = new Cuenta();  //objeto cuenta
            cliente.setSueldo(sueldo);
-           cliente.setNombre(name);
+           cliente.setNombre(name); //1
            cliente.setRun(run);// 3   
            cliente.setDv_run(dv_run);//4
            cliente.setGenero(genero);
            cliente.setEmail(email);// 7  
            cliente.seteCivil(ecivil);
            cliente.setfNacimiento(fNacimiento);
-          // cliente.set
+           cliente.setDireccion(direccion);
+           
+           // aqui va el llamo a controlador
+          cliente.setC_id_nEducacional(2); 
+          //cliente.setC_id_ocupacion();
+          cliente.setC_id_ciudad(2);
+           cuenta.setCvv(cvv);
+           cuenta.setNro_tarjeta(numeroTarjeta);
+           cuenta.setPinNumber(numeroPin);
+           cuenta.setRut_cliente(run);
+           cuenta.setEstado(true);
+       //    cuenta.setTipoCuenta("2");
+           cuenta.setSaldo(0);
+           OcupacionCON ocu = new OcupacionCON();
+        // Use the LoginCON class for database interaction
+        if (con.loginCuenta(ctarjeta, cpin)) {
+        } else {
+            this.dispose();
+            ini.setVisible(true);
+        }
+        
+         JOptionPane.showMessageDialog(this, "Pin: "+numeroPin+" Número de cuenta: "+numeroTarjeta+" Cvv: "+cvv, "Validación", JOptionPane.WARNING_MESSAGE);
+           
+           //aqui inserto datos a cliente
+           
+           
+          // aqui inserto datos a cuenta
         
         }
     

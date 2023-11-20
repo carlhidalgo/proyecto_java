@@ -22,7 +22,7 @@ public class ClienteCON {
     Conexion cnx = new Conexion();
     
     public void formCliente(String run, String name, char dv_run, String genero, String direccion, String email,
-            String eCivil, String fNacimiento, int sueldo, String ciudad) throws SQLException {
+            String eCivil, String fNacimiento, int sueldo, String ciudad) throws SQLException, ClassNotFoundException {
         if (name.equals("")) {
             JOptionPane.showMessageDialog(null, "Campo nombre es obligatorio.");
         } else {
