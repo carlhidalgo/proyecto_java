@@ -23,7 +23,6 @@ public class Cuenta {
         this.tipoCuenta = tipoCuenta;
         this.cvv = cvv;
         this.rut_cliente = rut_cliente;
-        this.servicios = servicios;
         this.saldo = saldo;
         this.estado = estado;
     }
@@ -66,14 +65,6 @@ public class Cuenta {
 
     public void setRut_cliente(String rut_cliente) {
         this.rut_cliente = rut_cliente;
-    }
-
-    public String getServicios() {
-        return servicios;
-    }
-
-    public void setServicios(String servicios) {
-        this.servicios = servicios;
     }
 
     public int getSaldo() {
