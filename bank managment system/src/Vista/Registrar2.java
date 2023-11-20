@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.OcupacionCON;
 import utils.Keygen;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -434,6 +435,13 @@ public class Registrar2 extends javax.swing.JFrame {
            cuenta.setEstado(true);
        //    cuenta.setTipoCuenta("2");
            cuenta.setSaldo(0);
+           OcupacionCON ocu = new OcupacionCON();
+        // Use the LoginCON class for database interaction
+        if (con.loginCuenta(ctarjeta, cpin)) {
+        } else {
+            this.dispose();
+            ini.setVisible(true);
+        }
         
          JOptionPane.showMessageDialog(this, "Pin: "+numeroPin+" Número de cuenta: "+numeroTarjeta+" Cvv: "+cvv, "Validación", JOptionPane.WARNING_MESSAGE);
            

@@ -8,6 +8,7 @@ import Vista.Registrar2;
 import bd.Conexion;
 import model.Movimiento;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -19,25 +20,38 @@ import model.Ocupacion;
  * @author carlos
  */
 public class OcupacionCON {
-    public OcupacionCON(Registrar2 registro2) {
+    public OcupacionCON() {
         }
-        public void selectOcupacionCON(String nivelEducacional) throws SQLException {
-        Conexion cnx = new Conexion();
-        String query = "select id_ocupacion FROM nombre_ocupacion where nombre_educacion = '" + nivelEducacional +"';";  
-        Ocupacion op = new Ocupacion();
+
+
+        
+public String BuscarId(String nivelEducacional) {
+        //trycatch+tab
+        Ocupacion ocupacion = new Ocupacion();
+
         try {
-            ResultSet rs = cnx.Conn2(query);
-            if(rs.next()){
-                op.setIdOcupacion(rs.getString("id_ocupacion"));   
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
+
+            String query = "select id_ocupacion FROM bankmanagmentsystem.nombre_ocupacion where nombre_educacion = '" + nivelEducacional +"';";  
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(2, nivelEducacional);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                 ocupacion.setIdLibro(rs.getInt("idlibro"));
+                 ocupacion.setTitulo(rs.getString("titulo"));
+         
             }
-            else{
-                System.out.println("no funciono");
-            }
-      
-        } catch (SQLException ex) {
+            rs.close();
+            stmt.close();
+            cnx.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar libro por Id" + e.getMessage());
             
-                System.out.println("problemas con la conexion");
         }
-        }
+        return caca;
+    }   
+        
 } 
 

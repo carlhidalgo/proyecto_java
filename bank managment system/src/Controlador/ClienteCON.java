@@ -22,11 +22,11 @@ public class ClienteCON {
     Conexion cnx = new Conexion();
     
     public void formCliente(String run, String name, char dv_run, String genero, String direccion, String email,
-            String eCivil, String fNacimiento, int sueldo, String ciudad) throws SQLException {
+            String eCivil, String fNacimiento, int sueldo, String ciudad) throws SQLException, ClassNotFoundException {
         if (name.equals("")) {
             JOptionPane.showMessageDialog(null, "Campo nombre es obligatorio.");
         } else {
-            String query = "insert into cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values ('"
+            String query = "insert into bankmanagmentsystem.cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values ('"
                     + run + "', '" + name + "', '" + dv_run + "', '" + genero + "', '" + direccion + "', '" + email + "', '" + eCivil
                     + "', '" + fNacimiento + "', " + sueldo + ");";
             cnx.Conn(query);

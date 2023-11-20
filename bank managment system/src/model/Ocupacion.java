@@ -9,7 +9,7 @@ package model;
  * @author carlos
  */
 public class Ocupacion {
-    private String idOcupacion;
+    private int idOcupacion;
     private String nombre;
 
     // Constructor, getters y setters
@@ -17,16 +17,16 @@ public class Ocupacion {
     public Ocupacion() {
     }
 
-    public Ocupacion(String idOcupacion, String nombre) {
+    public Ocupacion(int idOcupacion, String nombre) {
         this.idOcupacion = idOcupacion;
         this.nombre = nombre;
     }
 
-    public String getIdOcupacion() {
+    public int getIdOcupacion() {
         return idOcupacion;
     }
 
-    public void setIdOcupacion(String idOcupacion) {
+    public void setIdOcupacion(int idOcupacion) {
         this.idOcupacion = idOcupacion;
     }
 
@@ -43,8 +43,6 @@ public class Ocupacion {
         return "Ocupacion{" + "idOcupacion=" + idOcupacion + ", nombre=" + nombre + '}';
     }
 
-    public void setOcupacion(Ocupacion ocupacion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
     
 }
