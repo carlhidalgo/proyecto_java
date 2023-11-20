@@ -5,6 +5,9 @@
 package Vista;
 
 import java.util.Date;
+import javax.swing.JTextField;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,7 +16,8 @@ import java.util.Date;
 public class Registrar1 extends javax.swing.JFrame {
    
     private Login1 l1; //variable login para ocultar o mostrar la ventana
-    Registrar2 v2 = new Registrar2(); //inicializa registro 2 para usar más tarde
+ //   Registrar2 v2 = new Registrar2(); //inicializa registro 2 para usar más tarde
+    String run;
     public Registrar1() {
         
         initComponents();
@@ -33,28 +37,29 @@ public class Registrar1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cecivil = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        cnombre = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        crun = new javax.swing.JTextField();
+        cemail = new javax.swing.JTextField();
         Botonatras1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         Botonsiguiente = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        cmasculino = new javax.swing.JRadioButton();
+        cfemenino = new javax.swing.JRadioButton();
+        cnobinario = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        cnacimiento = new com.toedter.calendar.JDateChooser();
+        csueldo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,14 +70,15 @@ public class Registrar1 extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Fecha Nac: ");
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setEditable(true);
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero(a)", "Casado(a)", "Divorsiado(a)", "Viudo(a)" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cecivil.setBackground(new java.awt.Color(255, 255, 255));
+        cecivil.setEditable(true);
+        cecivil.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cecivil.setForeground(new java.awt.Color(0, 0, 0));
+        cecivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Soltero(a)", "Casado(a)", "Divorsiado(a)", "Viudo(a)" }));
+        cecivil.setFocusable(false);
+        cecivil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cecivilActionPerformed(evt);
             }
         });
 
@@ -81,11 +87,10 @@ public class Registrar1 extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Estado Civil:");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        cnombre.setBackground(new java.awt.Color(255, 255, 255));
+        cnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                cnombreActionPerformed(evt);
             }
         });
 
@@ -94,16 +99,14 @@ public class Registrar1 extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("E-mail:");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("jTextField2");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        crun.setBackground(new java.awt.Color(255, 255, 255));
+        crun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                crunActionPerformed(evt);
             }
         });
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("jTextField2");
+        cemail.setBackground(new java.awt.Color(255, 255, 255));
 
         Botonatras1.setBackground(new java.awt.Color(0, 0, 0));
         Botonatras1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -118,7 +121,7 @@ public class Registrar1 extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Telefono:");
+        jLabel9.setText("  Sueldo:");
 
         Botonsiguiente.setBackground(new java.awt.Color(0, 0, 0));
         Botonsiguiente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -129,9 +132,6 @@ public class Registrar1 extends javax.swing.JFrame {
                 BotonsiguienteActionPerformed(evt);
             }
         });
-
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField7.setText("jTextField2");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -150,33 +150,41 @@ public class Registrar1 extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jRadioButton1.setText("Masculino");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(cmasculino);
+        cmasculino.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmasculino.setForeground(new java.awt.Color(51, 51, 51));
+        cmasculino.setText("Masculino");
+        cmasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                cmasculinoActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(51, 51, 51));
-        jRadioButton2.setText("Femenino");
+        buttonGroup1.add(cfemenino);
+        cfemenino.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cfemenino.setForeground(new java.awt.Color(51, 51, 51));
+        cfemenino.setText("Femenino");
+        cfemenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cfemeninoActionPerformed(evt);
+            }
+        });
 
-        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(51, 51, 51));
-        jRadioButton3.setText("No binario");
+        buttonGroup1.add(cnobinario);
+        cnobinario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cnobinario.setForeground(new java.awt.Color(51, 51, 51));
+        cnobinario.setText("No binario");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jRadioButton1)
+                .addComponent(cmasculino)
                 .addGap(50, 50, 50)
-                .addComponent(jRadioButton2)
+                .addComponent(cfemenino)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton3)
+                .addComponent(cnobinario)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -184,9 +192,9 @@ public class Registrar1 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(cmasculino)
+                    .addComponent(cfemenino)
+                    .addComponent(cnobinario))
                 .addContainerGap())
         );
 
@@ -200,11 +208,13 @@ public class Registrar1 extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Genero:");
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setDateFormatString("dd-MM-yyyy");
-        jDateChooser1.setMinSelectableDate(new java.util.Date(-62135751540000L));
-        jDateChooser1.setOpaque(false);
+        cnacimiento.setBackground(new java.awt.Color(255, 255, 255));
+        cnacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        cnacimiento.setDateFormatString("dd-MM-yyyy");
+        cnacimiento.setMinSelectableDate(new java.util.Date(-62135751540000L));
+        cnacimiento.setOpaque(false);
+
+        csueldo.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,13 +234,13 @@ public class Registrar1 extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cemail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cnombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(crun, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 375, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cecivil, javax.swing.GroupLayout.Alignment.LEADING, 0, 375, Short.MAX_VALUE)
+                            .addComponent(cnacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(csueldo)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(Botonatras1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,12 +266,12 @@ public class Registrar1 extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(cnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(crun, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -269,19 +279,19 @@ public class Registrar1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cnacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cecivil, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cemail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(csueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Botonsiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,9 +313,9 @@ public class Registrar1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cnombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cnombreActionPerformed
 
     private void Botonatras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botonatras1ActionPerformed
         l1.setVisible(true);
@@ -313,23 +323,92 @@ public class Registrar1 extends javax.swing.JFrame {
     }//GEN-LAST:event_Botonatras1ActionPerformed
 
     private void BotonsiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonsiguienteActionPerformed
-        //boton siguiente:
+        
+        
+        String genero = null;        
+        // String id_cliente = "" + random; // 1
+        String name = cnombre.getText(); // 2
+        String run = crun.getText();
+        String email = cemail.getText();
+        String ecivil = (String) cecivil.getSelectedItem();
+        String fNacimiento = ((JTextField) cnacimiento.getDateEditor().getUiComponent()).getText(); // 9   
+        String sueldo2 = csueldo.getText();
+        
+        if (cmasculino.isSelected()) {
+            genero = "masculino";
+        } else if (cfemenino.isSelected()) {
+            genero = "femenino";
+        } else if (cnobinario.isSelected()) {
+            genero = "No binario";
+        } 
+        else{ genero = "";}
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese nombre", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cnombre.requestFocus();
+            return;
+        }else if(run.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese run", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.crun.requestFocus();
+            return;
+        }else if (genero.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese su genero", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;
+            
+        }else if (fNacimiento.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese fecha nacimiento", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;
+            
+        }else if (ecivil.equalsIgnoreCase("Seleccionar")) {
+            JOptionPane.showMessageDialog(this, "Ingrese estado civil", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cecivil.requestFocus();
+            return;
+            
+        }else if (email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese email", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cemail.requestFocus();
+            return;    
+            
+         
+        }else if (sueldo2.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese su sueldo", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.csueldo.requestFocus();
+            return;
+
+        }
+        
+            else{
+
+  
+
+      
+        Integer sueldo = Integer.valueOf(sueldo2); // 11
+        
+        Registrar2 v2 = new Registrar2(name,run,sueldo,genero,email,ecivil,fNacimiento);
+
         v2.setV1(this);
         v2.setVisible(true);
         this.setVisible(false);
+                    }
+
+//boton siguiente:
+
     }//GEN-LAST:event_BotonsiguienteActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    
+    private void crunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crunActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_crunActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cecivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cecivilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cecivilActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void cmasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmasculinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_cmasculinoActionPerformed
+
+    private void cfemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfemeninoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cfemeninoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,55 +444,23 @@ public class Registrar1 extends javax.swing.JFrame {
             }
         });
     }
-    // Método para obtener el nombre completo
-    public String getNombreCompleto() {
-        return jTextField1.getText();
-    }
 
-    // Método para obtener el RUN
-    public String getRUN() {
-        return jTextField2.getText();
-    }
 
-    // Método para obtener el género
-    public String getGenero() {
-        if (jRadioButton1.isSelected()) {
-            return "Masculino";
-        } else if (jRadioButton2.isSelected()) {
-            return "Femenino";
-        } else if (jRadioButton3.isSelected()) {
-            return "No binario";
-        } else {
-            return "";
-        }
-    }
-
-    // Método para obtener la fecha de nacimiento
-    public Date getFechaNacimiento() {
-        return jDateChooser1.getDate();
-    }
-
-    // Método para obtener el estado civil
-    public String getEstadoCivil() {
-        return jComboBox1.getSelectedItem().toString();
-    }
-
-    // Método para obtener el correo electrónico
-    public String getEmail() {
-        return jTextField6.getText();
-    }
-
-    // Método para obtener el teléfono
-    public String getTelefono() {
-        return jTextField7.getText();
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botonatras1;
     private javax.swing.JButton Botonsiguiente;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cecivil;
+    private javax.swing.JTextField cemail;
+    private javax.swing.JRadioButton cfemenino;
+    private javax.swing.JRadioButton cmasculino;
+    private com.toedter.calendar.JDateChooser cnacimiento;
+    private javax.swing.JRadioButton cnobinario;
+    private javax.swing.JTextField cnombre;
+    private javax.swing.JTextField crun;
+    private javax.swing.JTextField csueldo;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -425,12 +472,5 @@ public class Registrar1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

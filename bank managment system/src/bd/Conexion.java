@@ -33,15 +33,11 @@ public class Conexion {
     }
 
     public ResultSet Conn2(String query) throws SQLException {
-        c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankmanagmentsystem", usuario, contraseña);
+        c = DriverManager.getConnection("jdbc:mysql://database-proyect.cawe9uct7p6h.us-east-1.rds.amazonaws.com:3306/bankmanagmentsystem", usuario, contraseña);
         s = c.createStatement();
         return s.executeQuery(query);
     }
 
-    public void rollback() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }
 
 
