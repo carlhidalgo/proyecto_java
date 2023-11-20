@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import bd.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.Date;
 
 
 
@@ -41,6 +42,7 @@ public class CuentaDAO {
         }
         return false;
     }
+
 
    
 }

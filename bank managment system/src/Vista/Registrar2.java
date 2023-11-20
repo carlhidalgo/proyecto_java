@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ClienteDAO;
 import Controlador.OcupacionCON;
 import utils.Keygen;
 import java.util.Random;
@@ -406,6 +407,8 @@ public class Registrar2 extends javax.swing.JFrame {
             return;
         } 
         else{
+            OcupacionCON ocu = new OcupacionCON();
+             int id_ocu = ocu.BuscarId(ocupacion);
             Keygen kg = new Keygen();
             String cvv = Integer.toString((int) kg.keyCVV());
             String numeroTarjeta = "" + kg.keyTarjeta();
@@ -423,25 +426,26 @@ public class Registrar2 extends javax.swing.JFrame {
            cliente.seteCivil(ecivil);
            cliente.setfNacimiento(fNacimiento);
            cliente.setDireccion(direccion);
-           
-           // aqui va el llamo a controlador
-          cliente.setC_id_nEducacional(2); 
-          //cliente.setC_id_ocupacion();
-          cliente.setC_id_ciudad(2);
+           cliente.setC_id_nEducacional(2); 
+           cliente.setC_id_ciudad(2);
+           cliente.setC_id_ocupacion(id_ocu);
            cuenta.setCvv(cvv);
            cuenta.setNro_tarjeta(numeroTarjeta);
            cuenta.setPinNumber(numeroPin);
            cuenta.setRut_cliente(run);
            cuenta.setEstado(true);
-       //    cuenta.setTipoCuenta("2");
+           cuenta.setTipoCuenta("5");
            cuenta.setSaldo(0);
-           OcupacionCON ocu = new OcupacionCON();
+           
         // Use the LoginCON class for database interaction
-        if (con.loginCuenta(ctarjeta, cpin)) {
-        } else {
-            this.dispose();
-            ini.setVisible(true);
-        }
+           ClienteDAO reg = new ClienteDAO();
+           if (reg.agregar(cliente)) {
+                JOptionPane.showMessageDialog(this, "Se agregó libro", "Información", JOptionPane.INFORMATION_MESSAGE);
+                
+            }else{
+                JOptionPane.showMessageDialog(this, "No Se agregó libro", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+
         
          JOptionPane.showMessageDialog(this, "Pin: "+numeroPin+" Número de cuenta: "+numeroTarjeta+" Cvv: "+cvv, "Validación", JOptionPane.WARNING_MESSAGE);
            
