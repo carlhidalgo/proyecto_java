@@ -31,9 +31,9 @@ public class Bloquear extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        aceptar = new javax.swing.JButton();
+        atras = new javax.swing.JButton();
+        cvv = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -41,39 +41,39 @@ public class Bloquear extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton9.setBackground(new java.awt.Color(217, 229, 241));
-        jButton9.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(51, 51, 51));
-        jButton9.setText("Aceptar");
-        jButton9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        aceptar.setBackground(new java.awt.Color(217, 229, 241));
+        aceptar.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        aceptar.setForeground(new java.awt.Color(51, 51, 51));
+        aceptar.setText("Aceptar");
+        aceptar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                aceptarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 180, 35));
+        jPanel1.add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 180, 35));
 
-        jButton8.setBackground(new java.awt.Color(217, 229, 241));
-        jButton8.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(51, 51, 51));
-        jButton8.setText("Atrás");
-        jButton8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        atras.setBackground(new java.awt.Color(217, 229, 241));
+        atras.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        atras.setForeground(new java.awt.Color(51, 51, 51));
+        atras.setText("Atrás");
+        atras.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                atrasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 180, 35));
+        jPanel1.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 180, 35));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        cvv.setBackground(new java.awt.Color(255, 255, 255));
+        cvv.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        cvv.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        cvv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                cvvActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 200, 35));
+        jPanel1.add(cvv, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 200, 35));
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,18 +105,18 @@ public class Bloquear extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
      i1.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_atrasActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cvvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cvvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cvvActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_aceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,11 +154,11 @@ public class Bloquear extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton aceptar;
+    private javax.swing.JButton atras;
+    private javax.swing.JTextField cvv;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
