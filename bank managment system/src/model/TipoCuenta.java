@@ -10,7 +10,7 @@ package model;
  */
 public class TipoCuenta {
     
-    private String idTipoCuenta;
+    private int idTipoCuenta;
     private String nombreCuenta;
 
     // Constructor, getters y setters
@@ -18,16 +18,16 @@ public class TipoCuenta {
     public TipoCuenta() {
     }
 
-    public TipoCuenta(String idTipoCuenta, String nombreCuenta) {
+    public TipoCuenta(int idTipoCuenta, String nombreCuenta) {
         this.idTipoCuenta = idTipoCuenta;
         this.nombreCuenta = nombreCuenta;
     }
 
-    public String getIdTipoCuenta() {
+    public int getIdTipoCuenta() {
         return idTipoCuenta;
     }
 
-    public void setIdTipoCuenta(String idTipoCuenta) {
+    public void setIdTipoCuenta(int idTipoCuenta) {
         this.idTipoCuenta = idTipoCuenta;
     }
 
@@ -41,8 +41,9 @@ public class TipoCuenta {
 
     @Override
     public String toString() {
-        return "tipoCuenta{" + "idTipoCuenta=" + idTipoCuenta + ", nombreCuenta=" + nombreCuenta + '}';
+        return "TipoCuenta{" + "idTipoCuenta=" + idTipoCuenta + ", nombreCuenta=" + nombreCuenta + '}';
     }
+
     
     
 }

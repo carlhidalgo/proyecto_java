@@ -9,25 +9,37 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import Vista.Registrar2;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
 
 /**
  *
  * @author carlos
  */
 public class NivelEducacionCON {
-    public NivelEducacionCON(Registrar2 registro2) {
-        
-    }
-    
-          // Métodos para acceder a la tabla Movimiento en la base de datos  
 
-    public void selectNivelEducacional(String nivelEducacional) throws SQLException {
-        
-        Conexion cnx = new Conexion();
-        String query = "select id_nEducacional FROM nivel_educacional where nombre_educacion = '" + nivelEducacional +"';";  
-        ResultSet rs = cnx.Conn2(query);
-        
-    }
     
+    
+    public void BuscarIdEducacion(String nombreEducacion) {
+    NivelEducacion educacion = new NivelEducacion();
+    try {
+        Conexion con = new Conexion();
+        Connection cnx = con.obtenerConexion();
+
+        String query = "select id_educacion FROM bankmanagmentsystem.educacion where nombre_educacion = '" + nombreEducacion +"';";
+        PreparedStatement stmt = cnx.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+             educacion.setIdEducacion(rs.getInt("id_educacion"));
+        }
+        rs.close();
+        stmt.close();
+        cnx.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error SQL al buscar educacion por nombre" + e.getMessage());
+    }
+
+}
     
 }

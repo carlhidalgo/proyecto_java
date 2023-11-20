@@ -9,7 +9,7 @@ package model;
  * @author carlos
  */
 public class NivelEducacion {
-    private String idEducacion;
+    private int idEducacion;
     private String nombreEducacion;
 
     // Constructor, getters y setters
@@ -17,16 +17,16 @@ public class NivelEducacion {
     public NivelEducacion() {
     }
 
-    public NivelEducacion(String idEducacion, String nombreEducacion) {
+    public NivelEducacion(int idEducacion, String nombreEducacion) {
         this.idEducacion = idEducacion;
         this.nombreEducacion = nombreEducacion;
     }
 
-    public String getIdEducacion() {
+    public int getIdEducacion() {
         return idEducacion;
     }
 
-    public void setIdEducacion(String idEducacion) {
+    public void setIdEducacion(int idEducacion) {
         this.idEducacion = idEducacion;
     }
 
@@ -42,10 +42,5 @@ public class NivelEducacion {
     public String toString() {
         return "NivelEducacion{" + "idEducacion=" + idEducacion + ", nombreEducacion=" + nombreEducacion + '}';
     }
-
-    public void setNivelEducacion(NivelEducacion educacion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
+ 
 }
