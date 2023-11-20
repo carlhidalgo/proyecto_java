@@ -8,14 +8,14 @@ package model;
 public class Cliente {
 
  private String run,nombre,genero,direccion,email,eCivil,fNacimiento,ciudad,nivelEducacional,ocupacion;
-    private char dv_run;
+    private String dv_run;
     private int sueldo,c_id_nEducacional,c_id_ciudad,c_id_ocupacion;
     private boolean cuenta_existente;
 
     public Cliente() {
     }
 
-    public Cliente(String run, String nombre, String genero, String direccion, String email, String eCivil, String fNacimiento, char dv_run, int sueldo, int c_id_nEducacional, int c_id_ciudad, int c_id_ocupacion, boolean cuenta_existente) {
+    public Cliente(String run, String nombre, String genero, String direccion, String email, String eCivil, String fNacimiento, int sueldo, int c_id_nEducacional, int c_id_ciudad, int c_id_ocupacion, boolean cuenta_existente) {
         this.run = run;
         this.nombre = nombre;
         this.genero = genero;
@@ -23,7 +23,6 @@ public class Cliente {
         this.email = email;
         this.eCivil = eCivil;
         this.fNacimiento = fNacimiento;
-        this.dv_run = dv_run;
         this.sueldo = sueldo;
         this.c_id_nEducacional = c_id_nEducacional;
         this.c_id_ciudad = c_id_ciudad;
@@ -46,14 +45,6 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public char getDv_run() {
-        return dv_run;
-    }
-
-    public void setDv_run(char dv_run) {
-        this.dv_run = dv_run;
     }
 
     public String getGenero() {

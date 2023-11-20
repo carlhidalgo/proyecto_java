@@ -22,42 +22,37 @@ import java.util.Date;
 
 public class ClienteDAO {
    
-public boolean agregar(String run, String name, char dv_run, String genero, String direccion, String email,
-        String eCivil, String fNacimiento, int sueldo,boolean cuenta_ext ,String ciudad) throws SQLException {
+public boolean agregar(Cliente cliente) throws SQLException {
     try {
          Conexion con = new Conexion();
          Connection cnx = con.obtenerConexion();
-
-
-        if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo nombre es obligatorio.");
-        } else {
-            String query = "insert into bankmanagmentsystem.cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+         
+            String query = "insert into bankmanagmentsystem.cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(1, run);
-            stmt.setString(2, name);
-            stmt.setString(3, String.valueOf(dv_run));
-            stmt.setString(4, genero);
-            stmt.setString(5, direccion);
-            stmt.setString(6, email);
-            stmt.setString(7, eCivil);
-            stmt.setString(8, fNacimiento);
-            stmt.setInt(9, sueldo);
-            stmt.setString(10, ciudad);
-            stmt.setString(11, ciudad);
-            stmt.setString(12, ciudad);
-            stmt.setString(13, ciudad);
+            stmt.setString(1, cliente.getRun());
+            stmt.setString(2, cliente.getNombre());
+            stmt.setString(3, cliente.getGenero());
+            stmt.setString(4, cliente.getDireccion());
+            stmt.setString(5, cliente.getEmail());
+            stmt.setString(6, cliente.geteCivil());
+            stmt.setString(7, cliente.getfNacimiento());
+            stmt.setInt(8, cliente.getSueldo());
+            stmt.setInt(9, cliente.getC_id_nEducacional());
+            stmt.setInt(10, cliente.getC_id_ciudad());
+            stmt.setInt(11, cliente.getC_id_ocupacion());
             stmt.executeUpdate();
 
             stmt.close();
             cnx.close();
+            return true;
         }
-    } catch (SQLException e) {
-        System.out.println("Error SQL al insertar cliente" + e.getMessage());
-    }
-}
+     catch (SQLException e) {
+            System.out.println("Error SQL al agregar libro " + e.getMessage());
+            return false;
     
 }
+    
+}}
 
 
 
