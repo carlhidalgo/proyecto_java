@@ -23,7 +23,7 @@ public class OcupacionCON {
     public OcupacionCON() {
         }
 
-public void BuscarId(String ocupacion) {
+public Ocupacion BuscarId(String ocupacion) {
         Ocupacion ocupacion2 = new Ocupacion();
 
         try {
@@ -39,41 +39,10 @@ public void BuscarId(String ocupacion) {
             rs.close();
             stmt.close();
             cnx.close();
-            System.out.println(ocupacion2.getIdOcupacion());
         } catch (SQLException e) {
             System.out.println("Error SQL al buscar ocupacion por nombre" + e.getMessage());
         }
-        
+        return ocupacion2;
     }
-
-public void insertocupacion(String ocupacion, int idOcupacion) {
-    try {
-        // 1. Establish a connection
-        Conexion con = new Conexion();
-        Connection cnx = con.obtenerConexion();
-
-        // 2. Create a SQL INSERT query
-        String query = "INSERT INTO bankmanagmentsystem.ocupacion (nombre_ocupacion, id_ocupacion) VALUES (?, ?)";
-
-        // 3. Prepare the statement
-        PreparedStatement stmt = cnx.prepareStatement(query);
-
-        // 4. Set the parameters in the query
-        stmt.setString(1, ocupacion);
-        stmt.setInt(2, idOcupacion);
-
-        // 5. Execute the query
-        stmt.executeUpdate();
-
-        // 6. Close the connection
-        stmt.close();
-        cnx.close();
-    } catch (SQLException e) {
-        System.out.println("Error SQL al insertar datos: " + e.getMessage());
-    }
-}
-
-
-
 } 
 

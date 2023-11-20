@@ -13,9 +13,13 @@ public class Inicio extends javax.swing.JFrame {
     private Login1 l1; //variable login para ocultar o mostrar la ventana
     
     Cambiar c1 = new Cambiar(); //inicializa cambiar para usar más tarde
-    Despositar d1 = new Despositar(); //inicializa depositar para usar más tarde
-    Retiro1 r1 = new Retiro1(); //inicializa retiro 1 para usar más tarde
+    Despositar deposiotar = new Despositar(); //inicializa depositar para usar más tarde
     Retiro2 r2 = new Retiro2(); //inicializa retiro 2 para usar más tarde
+    Bloquear b1oquear = new Bloquear();
+    Cartola cartola = new Cartola();
+    Transferir transferir = new Transferir();
+    Consultar consultars = new Consultar();
+    
     public Inicio() {
         
         initComponents();
@@ -35,79 +39,56 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        bloquear = new javax.swing.JButton();
+        cambio = new javax.swing.JButton();
+        cartolax = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        depositar = new javax.swing.JButton();
+        retirar = new javax.swing.JButton();
+        transferirx = new javax.swing.JButton();
+        consultar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(217, 229, 241));
-        jButton1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Retiro rápido");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bloquear.setBackground(new java.awt.Color(217, 229, 241));
+        bloquear.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        bloquear.setForeground(new java.awt.Color(51, 51, 51));
+        bloquear.setText("Bloquear tarjeta");
+        bloquear.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        bloquear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bloquearActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 180, 35));
+        jPanel1.add(bloquear, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 180, 35));
 
-        jButton2.setBackground(new java.awt.Color(217, 229, 241));
-        jButton2.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 51, 51));
-        jButton2.setText("Cambio PIN");
-        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cambio.setBackground(new java.awt.Color(217, 229, 241));
+        cambio.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        cambio.setForeground(new java.awt.Color(51, 51, 51));
+        cambio.setText("Cambio PIN");
+        cambio.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        cambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cambioActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 180, 35));
+        jPanel1.add(cambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 180, 35));
 
-        jButton4.setBackground(new java.awt.Color(217, 229, 241));
-        jButton4.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(51, 51, 51));
-        jButton4.setText("Retirar");
-        jButton4.setActionCommand("");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        cartolax.setBackground(new java.awt.Color(217, 229, 241));
+        cartolax.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        cartolax.setForeground(new java.awt.Color(51, 51, 51));
+        cartolax.setText("Cartola");
+        cartolax.setActionCommand("");
+        cartolax.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        cartolax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                cartolaxActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 180, 35));
-
-        jButton3.setBackground(new java.awt.Color(217, 229, 241));
-        jButton3.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(51, 51, 51));
-        jButton3.setText("Consultar saldo");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, 35));
-
-        jButton6.setBackground(new java.awt.Color(217, 229, 241));
-        jButton6.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(51, 51, 51));
-        jButton6.setText("Bloquear tarjeta");
-        jButton6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 180, 35));
+        jPanel1.add(cartolax, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 180, 35));
 
         jButton5.setBackground(new java.awt.Color(217, 229, 241));
         jButton5.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
@@ -121,20 +102,55 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 180, 35));
 
-        jButton7.setBackground(new java.awt.Color(217, 229, 241));
-        jButton7.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("Depositar");
-        jButton7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        depositar.setBackground(new java.awt.Color(217, 229, 241));
+        depositar.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        depositar.setForeground(new java.awt.Color(51, 51, 51));
+        depositar.setText("Depositar");
+        depositar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        depositar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                depositarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 180, 35));
+        jPanel1.add(depositar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 180, 35));
+
+        retirar.setBackground(new java.awt.Color(217, 229, 241));
+        retirar.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        retirar.setForeground(new java.awt.Color(51, 51, 51));
+        retirar.setText("Retirar");
+        retirar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        retirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retirarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(retirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 180, 35));
+
+        transferirx.setBackground(new java.awt.Color(217, 229, 241));
+        transferirx.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        transferirx.setForeground(new java.awt.Color(51, 51, 51));
+        transferirx.setText("Transferencia");
+        transferirx.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        transferirx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferirxActionPerformed(evt);
+            }
+        });
+        jPanel1.add(transferirx, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 180, 35));
+
+        consultar.setBackground(new java.awt.Color(217, 229, 241));
+        consultar.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        consultar.setForeground(new java.awt.Color(51, 51, 51));
+        consultar.setText("Consultar saldo");
+        consultar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 51, 51), null));
+        consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, 35));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\gauge\\Documents\\NetBeansProjects\\proyecto_java\\bank managment system\\recursos\\ATM.jpg")); // NOI18N
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel7.setMaximumSize(new java.awt.Dimension(850, 1965));
         jLabel7.setMinimumSize(new java.awt.Dimension(500, 500));
@@ -159,41 +175,49 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      r2.setI1(this);
-        r2.setVisible(true);
+    private void bloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloquearActionPerformed
+        b1oquear.setI1(this);
+        b1oquear.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bloquearActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambioActionPerformed
         c1.setI1(this);
         c1.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cambioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        r1.setI1(this);
-        r1.setVisible(true);
+    private void cartolaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartolaxActionPerformed
+        cartola.setI1(this);
+        cartola.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_cartolaxActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        d1.setI1(this);
-        d1.setVisible(true);
+    private void depositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositarActionPerformed
+        deposiotar.setI1(this);
+        depositar.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_depositarActionPerformed
+
+    private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_retirarActionPerformed
+
+    private void transferirxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferirxActionPerformed
+        transferir.setI1(this);
+        transferir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_transferirxActionPerformed
+
+    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
+        consultars.setI1(this);
+        consultars.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_consultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,14 +256,15 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton bloquear;
+    private javax.swing.JButton cambio;
+    private javax.swing.JButton cartolax;
+    private javax.swing.JButton consultar;
+    private javax.swing.JButton depositar;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton retirar;
+    private javax.swing.JButton transferirx;
     // End of variables declaration//GEN-END:variables
 }

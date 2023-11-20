@@ -396,14 +396,6 @@ public class Registrar2 extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Debe seleccionar ocupacion", "Validación", JOptionPane.WARNING_MESSAGE);
         this.cocupacion.requestFocus();
         return;    
-        }else {
-        // Insert ocupacion into the database
-        OcupacionCON ocu = new OcupacionCON();
-        ocu.insertocupacion(ocupacion, idOcupacion);
-      
-    }
-            
-         
         }else if (declaracionCorrecta==false) {
             JOptionPane.showMessageDialog(this, "Debe completar el campo de declaracion", "Validación", JOptionPane.WARNING_MESSAGE);
             return;
@@ -416,9 +408,8 @@ public class Registrar2 extends javax.swing.JFrame {
             Ocupacion ocup = new Ocupacion();
             OcupacionCON ocu = new OcupacionCON();
             ocup.setNombre(ocupacion);
-            ocu.BuscarId(ocup.getNombre());
+            Ocupacion ocuCOnsulta = ocu.BuscarId(ocup.getNombre()); 
 //             int id_ocu = 550;
-            
             Keygen kg = new Keygen();
             String cvv = Integer.toString((int) kg.keyCVV());
             String numeroTarjeta = "" + kg.keyTarjeta();
@@ -436,7 +427,7 @@ public class Registrar2 extends javax.swing.JFrame {
            cliente.setDireccion(direccion);
            cliente.setC_id_nEducacional(2); 
            cliente.setC_id_ciudad(2);
-           cliente.setC_id_ocupacion(ocup.getIdOcupacion());
+           cliente.setC_id_ocupacion(ocuCOnsulta.getIdOcupacion());
            cuenta.setCvv(cvv);
            cuenta.setNro_tarjeta(numeroTarjeta);
            cuenta.setPinNumber(numeroPin);
@@ -449,22 +440,18 @@ public class Registrar2 extends javax.swing.JFrame {
            ClienteDAO reg = new ClienteDAO();
         try {
             if (reg.agregar(cliente)) {
-                JOptionPane.showMessageDialog(this, "Se agregó libro", "Información", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Pin: "+numeroPin+" Número de cuenta: "+numeroTarjeta+" Cvv: "+cvv, "Validación", JOptionPane.INFORMATION_MESSAGE);
                 
             }else{
-                JOptionPane.showMessageDialog(this, "No Se agregó libro", "Información", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No Se agregó el cliente", "Información", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Registrar2.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
-         JOptionPane.showMessageDialog(this, "Pin: "+numeroPin+" Número de cuenta: "+numeroTarjeta+" Cvv: "+cvv, "Validación", JOptionPane.WARNING_MESSAGE);
-           
-           //aqui inserto datos a cliente
-           
-           
-          // aqui inserto datos a cuenta
+         
+    
         
         }
     
