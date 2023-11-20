@@ -392,16 +392,13 @@ public class Registrar2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe seleccionar nivel educacional", "Validación", JOptionPane.WARNING_MESSAGE);
             this.ceducacion.requestFocus();
             return;    
-         }else if (ocupacion.equalsIgnoreCase("Seleccionar")) {
-        JOptionPane.showMessageDialog(this, "Debe seleccionar ocupacion", "Validación", JOptionPane.WARNING_MESSAGE);
-        this.cocupacion.requestFocus();
-        return;    
-        }else {
-        // Insert ocupacion into the database
-        OcupacionCON ocu = new OcupacionCON();
-        ocu.insertocupacion(ocupacion, idOcupacion);
-      
-    }
+        }else if (ocupacion.equalsIgnoreCase("Seleccionar")) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar ocupacion", "Validación", JOptionPane.WARNING_MESSAGE);
+            this.cocupacion.requestFocus();
+            return;    
+        }else if (tipoCuenta.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar que tipo de cuenta desea crear", "Validación", JOptionPane.WARNING_MESSAGE);
+            return;  
             
          
         }else if (declaracionCorrecta==false) {

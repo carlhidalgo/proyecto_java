@@ -10,14 +10,14 @@ package model;
  */
 public class Cuenta {
     
-    private String nro_tarjeta, pinNumber, tipoCuenta, cvv, rut_cliente, servicios;
+    private String nro_tarjeta, pinNumber, tipoCuenta, cvv, rut_cliente;
     private int saldo;
     private boolean estado;
 
     public Cuenta() {
     }
 
-    public Cuenta(String nro_tarjeta, String pinNumber, String tipoCuenta, String cvv, String rut_cliente, String servicios, int saldo, boolean estado) {
+    public Cuenta(String nro_tarjeta, String pinNumber, String tipoCuenta, String cvv, String rut_cliente, int saldo, boolean estado) {
         this.nro_tarjeta = nro_tarjeta;
         this.pinNumber = pinNumber;
         this.tipoCuenta = tipoCuenta;
@@ -85,8 +85,10 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return "Cuenta{" + "nro_tarjeta=" + nro_tarjeta + ", pinNumber=" + pinNumber + ", tipoCuenta=" + tipoCuenta + ", cvv=" + cvv + ", rut_cliente=" + rut_cliente + ", saldo=" + saldo + ", estado=" + estado + '}';
     }
+
+    
     
 }
 
