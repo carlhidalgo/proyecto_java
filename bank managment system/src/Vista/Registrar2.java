@@ -410,9 +410,11 @@ public class Registrar2 extends javax.swing.JFrame {
             return;
         } 
         else{
+            Ocupacion ocup = new Ocupacion();
             OcupacionCON ocu = new OcupacionCON();
-             int id_ocu = ocu.BuscarId(ocupacion);
+            int id_ocu = ocu.BuscarId(ocupacion);
 //             int id_ocu = 550;
+            ocup.setNombre(ocupacion);
             Keygen kg = new Keygen();
             String cvv = Integer.toString((int) kg.keyCVV());
             String numeroTarjeta = "" + kg.keyTarjeta();
@@ -430,7 +432,7 @@ public class Registrar2 extends javax.swing.JFrame {
            cliente.setDireccion(direccion);
            cliente.setC_id_nEducacional(2); 
            cliente.setC_id_ciudad(2);
-           cliente.setC_id_ocupacion(id_ocu);
+           cliente.setC_id_ocupacion(ocup.getIdOcupacion());
            cuenta.setCvv(cvv);
            cuenta.setNro_tarjeta(numeroTarjeta);
            cuenta.setPinNumber(numeroPin);
