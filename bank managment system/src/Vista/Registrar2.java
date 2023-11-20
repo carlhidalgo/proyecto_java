@@ -441,10 +441,11 @@ public class Registrar2 extends javax.swing.JFrame {
                     JOptionPane.WARNING_MESSAGE);
             return;
         } else {
-            NivelEducacion educ = new NivelEducacion();
-            Ocupacion ocup = new Ocupacion();
-            OcupacionCON ocu = new OcupacionCON();
+//            NivelEducacion educ = new NivelEducacion();
+           Ocupacion ocup = new Ocupacion();
             ocup.setNombre(ocupacion);
+            OcupacionCON ocu = new OcupacionCON();
+            //lo que retorna   =  lo que busca
             ocu.BuscarId(ocup.getNombre());
             // int id_ocu = 550;
 

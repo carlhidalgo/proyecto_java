@@ -272,10 +272,8 @@ public class Login1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pinActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pinActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_pinActionPerformed
-
+    private void pinActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pinActionPerformed    }// GEN-LAST:event_pinActionPerformed
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
         r1.setL1(this);
         r1.setVisible(true);

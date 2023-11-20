@@ -23,7 +23,7 @@ public class OcupacionCON {
     public OcupacionCON() {
         }
 
-public void BuscarId(String ocupacion) {
+public Ocupacion BuscarId(String ocupacion) {
         Ocupacion ocupacion2 = new Ocupacion();
 
         try {
@@ -39,11 +39,10 @@ public void BuscarId(String ocupacion) {
             rs.close();
             stmt.close();
             cnx.close();
-            System.out.println(ocupacion2.getIdOcupacion());
         } catch (SQLException e) {
             System.out.println("Error SQL al buscar ocupacion por nombre" + e.getMessage());
         }
-        
+        return ocupacion2;
     }
 
 public void insertocupacion(String ocupacion, int idOcupacion) {
