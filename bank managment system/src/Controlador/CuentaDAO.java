@@ -43,6 +43,27 @@ public class CuentaDAO {
         return false;
     }
 
+public void agregarCuenta(Cuenta cuenta) {
+        try {
+            Conexion con = new Conexion();
+            Connection cnx = con.obtenerConexion();
 
+            String query = "INSERT INTO bankmanagmentsystem.cuenta (nro_tarjeta, pinNumber, saldo, cvv, estado,run_cliente,tipo_cuenta) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, cuenta.getNro_tarjeta());
+            stmt.setString(2, cuenta.getPinNumber());
+            stmt.setInt(3, cuenta.getSaldo());
+            stmt.setString(4, cuenta.getCvv());
+            stmt.setBoolean(5, cuenta.isEstado());
+            stmt.setString(6, cuenta.getTipoCuenta());
+            
+            stmt.executeUpdate();
+
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al agregar cuenta: " + e.getMessage());
+        }
+    }
    
 }

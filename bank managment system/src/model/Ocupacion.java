@@ -10,7 +10,7 @@ package model;
  */
 public class Ocupacion {
     private int idOcupacion;
-    private String nombre;
+    private String nombreOcupacion;
 
     // Constructor, getters y setters
 
@@ -19,7 +19,7 @@ public class Ocupacion {
 
     public Ocupacion(int idOcupacion, String nombre) {
         this.idOcupacion = idOcupacion;
-        this.nombre = nombre;
+        this.nombreOcupacion = nombre;
     }
 
     public int getIdOcupacion() {
@@ -31,16 +31,16 @@ public class Ocupacion {
     }
 
     public String getNombre() {
-        return nombre;
+        return nombreOcupacion;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombreOcupacion = nombre;
     }
 
     @Override
     public String toString() {
-        return "Ocupacion{" + "idOcupacion=" + idOcupacion + ", nombre=" + nombre + '}';
+        return "Ocupacion{" + "idOcupacion=" + idOcupacion + ", nombre=" + nombreOcupacion + '}';
     }
 
 

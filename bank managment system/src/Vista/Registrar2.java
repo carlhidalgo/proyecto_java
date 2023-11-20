@@ -406,8 +406,9 @@ public class Registrar2 extends javax.swing.JFrame {
         } 
         else{
             Ocupacion ocup = new Ocupacion();
-            OcupacionCON ocu = new OcupacionCON();
             ocup.setNombre(ocupacion);
+            OcupacionCON ocu = new OcupacionCON();
+            //lo que retorna   =  lo que busca
             Ocupacion ocuCOnsulta = ocu.BuscarId(ocup.getNombre()); 
 //             int id_ocu = 550;
             Keygen kg = new Keygen();
