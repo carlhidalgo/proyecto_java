@@ -27,7 +27,7 @@ public boolean agregar(Cliente cliente) throws SQLException {
          Conexion con = new Conexion();
          Connection cnx = con.obtenerConexion();
          
-            String query = "insert into bankmanagmentsystem.cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
+            String query = "insert into bankmanagmentsystem.cliente (run_cliente,nombre_cliente,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente,c_id_nEducacional,c_id_ciudad,c_id_ocupacion) values (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.setString(1, cliente.getRun());
             stmt.setString(2, cliente.getNombre());
