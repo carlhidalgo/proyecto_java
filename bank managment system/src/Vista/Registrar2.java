@@ -6,8 +6,11 @@ package Vista;
 
 import Controlador.ClienteDAO;
 import Controlador.OcupacionCON;
+import java.sql.SQLException;
 import utils.Keygen;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Ciudad;
 import model.Cliente;
@@ -414,13 +417,12 @@ public class Registrar2 extends javax.swing.JFrame {
             String numeroTarjeta = "" + kg.keyTarjeta();
             String numeroPin = "" + kg.keyPin();
            System.out.println(run + name );
-           char dv_run = run.charAt(run.length()-1);
+           String dv_run = run.substring(-1);
            Cliente cliente = new Cliente(); // objeto cliente
            Cuenta cuenta = new Cuenta();  //objeto cuenta
            cliente.setSueldo(sueldo);
            cliente.setNombre(name); //1
            cliente.setRun(run);// 3   
-           cliente.setDv_run(dv_run);//4
            cliente.setGenero(genero);
            cliente.setEmail(email);// 7  
            cliente.seteCivil(ecivil);
@@ -439,12 +441,16 @@ public class Registrar2 extends javax.swing.JFrame {
            
         // Use the LoginCON class for database interaction
            ClienteDAO reg = new ClienteDAO();
-           if (reg.agregar(cliente)) {
+        try {
+            if (reg.agregar(cliente)) {
                 JOptionPane.showMessageDialog(this, "Se agregó libro", "Información", JOptionPane.INFORMATION_MESSAGE);
                 
             }else{
                 JOptionPane.showMessageDialog(this, "No Se agregó libro", "Información", JOptionPane.INFORMATION_MESSAGE);
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrar2.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         
          JOptionPane.showMessageDialog(this, "Pin: "+numeroPin+" Número de cuenta: "+numeroTarjeta+" Cvv: "+cvv, "Validación", JOptionPane.WARNING_MESSAGE);
