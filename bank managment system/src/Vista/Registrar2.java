@@ -446,7 +446,7 @@ public class Registrar2 extends javax.swing.JFrame {
             ocup.setNombre(ocupacion);
             OcupacionCON ocu = new OcupacionCON();
             //lo que retorna   =  lo que busca
-            ocu.BuscarId(ocup.getNombre());
+            Ocupacion ocuCOnsulta = ocu.BuscarId(ocup.getNombre()); 
             // int id_ocu = 550;
 
             Keygen kg = new Keygen();
@@ -466,7 +466,7 @@ public class Registrar2 extends javax.swing.JFrame {
             cliente.setDireccion(direccion);
             cliente.setC_id_nEducacional(2);
             cliente.setC_id_ciudad(2);
-            cliente.setC_id_ocupacion(ocup.getIdOcupacion());
+            cliente.setC_id_ocupacion(ocuCOnsulta.getIdOcupacion());
             cuenta.setCvv(cvv);
             cuenta.setNro_tarjeta(numeroTarjeta);
             cuenta.setPinNumber(numeroPin);
