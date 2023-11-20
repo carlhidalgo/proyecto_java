@@ -23,37 +23,7 @@ public class OcupacionCON {
     public OcupacionCON() {
         }
 
-
-        
-//public int BuscarId(String nivelOcupacional) {
-//        //trycatch+tab
-//        Ocupacion ocupacion = new Ocupacion();
-//
-//        try {
-//            Conexion con = new Conexion();
-//            Connection cnx = con.obtenerConexion();
-//
-//            String query = "select id_ocupacion FROM bankmanagmentsystem.nombre_ocupacion where nombre_ocupacion = '" + nivelOcupacional +"';";  
-//            PreparedStatement stmt = cnx.prepareStatement(query);
-////            stmt.setString(2, nivelEducacional);
-//            ResultSet rs = stmt.executeQuery();
-//            if (rs.next()) {
-//                 ocupacion.setIdOcupacion(rs.getInt("id_ocupacion"));
-//                 ocupacion.setNombre(rs.getString("nombre_ocupacion"));
-//         
-//            }
-//            rs.close();
-//            stmt.close();
-//            cnx.close();
-//
-//        } catch (SQLException e) {
-//            System.out.println("Error SQL al listar libro por Id" + e.getMessage());
-//            
-//        }
-//        return ocupacion.getIdOcupacion();
-//    }  
-
-public int BuscarId(String ocupacion) {
+public void BuscarId(String ocupacion) {
         Ocupacion ocupacion2 = new Ocupacion();
 
         try {
@@ -69,11 +39,11 @@ public int BuscarId(String ocupacion) {
             rs.close();
             stmt.close();
             cnx.close();
-
+            System.out.println(ocupacion2.getIdOcupacion());
         } catch (SQLException e) {
             System.out.println("Error SQL al buscar ocupacion por nombre" + e.getMessage());
         }
-        return ocupacion2.getIdOcupacion();
+        
     }
         
 } 
