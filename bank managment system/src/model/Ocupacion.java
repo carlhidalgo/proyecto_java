@@ -1,4 +1,4 @@
-/*
+                                                                                                                                                                                                                  /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -9,7 +9,7 @@ package model;
  * @author carlos
  */
 public class Ocupacion {
-    private int idOcupacion;
+    private String idOcupacion;
     private String nombre;
 
     // Constructor, getters y setters
@@ -17,16 +17,16 @@ public class Ocupacion {
     public Ocupacion() {
     }
 
-    public Ocupacion(int idOcupacion, String nombre) {
+    public Ocupacion(String idOcupacion, String nombre) {
         this.idOcupacion = idOcupacion;
         this.nombre = nombre;
     }
 
-    public int getIdOcupacion() {
+    public String getIdOcupacion() {
         return idOcupacion;
     }
-
-    public void setIdOcupacion(int idOcupacion) {
+                                                                           
+    public void setIdOcupacion(String idOcupacion) {
         this.idOcupacion = idOcupacion;
     }
 
@@ -43,6 +43,8 @@ public class Ocupacion {
         return "Ocupacion{" + "idOcupacion=" + idOcupacion + ", nombre=" + nombre + '}';
     }
 
-
+    public void setOcupacion(Ocupacion ocupacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
