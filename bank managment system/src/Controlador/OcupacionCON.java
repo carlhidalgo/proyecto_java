@@ -38,8 +38,8 @@ public String BuscarId(String nivelEducacional) {
             stmt.setString(2, nivelEducacional);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                 ocupacion.setIdLibro(rs.getInt("idlibro"));
-                 ocupacion.setTitulo(rs.getString("titulo"));
+                 ocupacion.setIdOcupacion(rs.getInt("idlibro"));
+                 ocupacion.setNombre(rs.getString("titulo"));
          
             }
             rs.close();
