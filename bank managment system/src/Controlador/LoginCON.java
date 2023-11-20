@@ -45,7 +45,7 @@ public static boolean loginUser(String ctarjeta, String cpin) {
             return false;
         }
     }
-
+                                                                                                    
 // Método para verificar la existencia de un cliente en la base de datos
     
     

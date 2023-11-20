@@ -1,4 +1,4 @@
-/*
+                                                                                                                                                                                                                  /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -25,7 +25,7 @@ public class Ocupacion {
     public String getIdOcupacion() {
         return idOcupacion;
     }
-
+                                                                           
     public void setIdOcupacion(String idOcupacion) {
         this.idOcupacion = idOcupacion;
     }

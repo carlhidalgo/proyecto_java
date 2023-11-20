@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -26,12 +26,12 @@ public class ClienteCON {
         if (name.equals("")) {
             JOptionPane.showMessageDialog(null, "Campo nombre es obligatorio.");
         } else {
-            String query = "insert into cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values ('"
+            String query = "insert into bankmanagmentsystem.cliente (run_cliente,nombre_cliente,dv_run,genero_cliente,direccion_cliente,email_cliente,eCivil_cliente,fNacimiento_cliente,sueldo_cliente) values ('"
                     + run + "', '" + name + "', '" + dv_run + "', '" + genero + "', '" + direccion + "', '" + email + "', '" + eCivil
                     + "', '" + fNacimiento + "', " + sueldo + ");";
             cnx.Conn(query);
             System.out.println(query);
-            String query2 = "update cliente SET c_id_ciudad = (SELECT id_ciudad FROM ciudad where nombre_ciudad = '" + ciudad + "') WHERE run_cliente = '" + run + "';";
+            String query2 = "update bankmanagmentsystem.cliente SET c_id_ciudad = (SELECT id_ciudad FROM bankmanagmentsystem.ciudad where nombre_ciudad = '" + ciudad + "') WHERE run_cliente = '" + run + "';";
             cnx.Conn(query2);
         }
     }

@@ -7,6 +7,7 @@ package bd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -20,22 +21,36 @@ public class Conexion {
     String usuario = "admin";
     String contraseña = "Planetarock2010.";
    
-   public void Conn(String query) throws SQLException {
-        try {
-            c = DriverManager.getConnection("jdbc:mysql://database-proyect.cawe9uct7p6h.us-east-1.rds.amazonaws.com:3306/bankmanagmentsystem", usuario, contraseña);
-            s = c.createStatement();
-            s.executeUpdate(query);
-            System.out.println("SUCCESFULLY CONNECTED!");
-        } catch (SQLException ex) {
-            System.out.println("CAN'T CONNECT.");
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+   public Connection Conn(String query) {
+        ;
+
+       Connection cnx = null;
+        
+        try{
+            cnx = DriverManager.getConnection("jdbc:mysql://database-proyect.cawe9uct7p6h.us-east-1.rds.amazonaws.com:3306/bankmanagmentsystem",
+                    usuario, contraseña);
+            System.out.println("Conexión establecida a la base de datos.");
+        }catch(SQLException e) {
+            System.out.println("Error al conectar a la base de datos "+e.getMessage() );
         }
+        
+        return cnx;
     }
 
     public ResultSet Conn2(String query) throws SQLException {
         c = DriverManager.getConnection("jdbc:mysql://database-proyect.cawe9uct7p6h.us-east-1.rds.amazonaws.com:3306/bankmanagmentsystem", usuario, contraseña);
         s = c.createStatement();
         return s.executeQuery(query);
+    }
+
+    public PreparedStatement prepareStatement(String updateQuery) {
+
+        return null;
+
+    }
+
+    public void close() {
+        
     }
 
 }
